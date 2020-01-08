@@ -20,5 +20,11 @@ function listPosts()
 function newMember($pseudo, $pwd, $email)
 {
 	$connectionManager = new Forteroche\Blog\ConnectionManager(); // Création d'un objet
-    $connectionManager->regMember($pseudo, $pwd, $email); // Appel d'une fonction de cet objet	
+    $inserMember = $connectionManager->regMember($pseudo, $pwd, $email); // Appel d'une fonction de cet objet	
+	if ($inserMember === false) {
+        throw new Exception('Inscription impossible, le pseudo ' . $pseudo . ' n\'est pas disponible !');
+    }
+    else {
+        //header('Location: index.php?action=connexion&pseudo=' . $pseudo);
+    }
 }
