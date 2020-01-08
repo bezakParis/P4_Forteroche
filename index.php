@@ -44,8 +44,18 @@ try { // On essaie de faire des choses
 				throw new Exception('il manque des informations !');
 			}
 		}
-        elseif ($_GET['action'] == 'connexion') {
-			
+        elseif ($_GET['action'] == 'connexion') {	
+			if (isset($_POST['pseudo']) AND $_POST['pseudo'] != "" 
+						AND isset($_POST['pwd']) AND $_POST['pwd'] != "") {
+					
+				$pass_hache = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
+				$pseudo = htmlspecialchars($_POST['pseudo']);
+				
+				connectionMember($pseudo, $pass_hache);
+			}
+			else {
+				throw new Exception('il manque des informations !');
+			}
 		}
     }
     else {

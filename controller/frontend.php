@@ -25,6 +25,24 @@ function newMember($pseudo, $pwd, $email)
         throw new Exception('Inscription impossible, le pseudo ' . $pseudo . ' n\'est pas disponible !');
     }
     else {
-        //header('Location: index.php?action=connexion&pseudo=' . $pseudo);
+		echo ('Bonjour '. $pseudo . ', inscription réussi !');
+		//require('view/frontend/listPostsView.php');
+        //header('Location: index.php?action=connexion&pseudo=' . $pseudo&pass=);
     }
+	
+}
+
+function connectionMember($pseudo, $pass_hache)
+{
+	$connectionManager = new Forteroche\Blog\ConnectionManager(); // Création d'un objet
+	$retour = $connectionManager->connectMember($pseudo, $pass_hache);
+	if ($retour) {
+		echo ('Bonjour '. $pseudo . ', vous êtes connecté !');
+		//require('view/frontend/listPostsView.php');
+	}
+	else
+	{		
+		throw new Exception('Mauvais identifiant ou mot de passe !');
+	}
+		
 }
