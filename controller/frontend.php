@@ -4,6 +4,14 @@
 require_once('model/PostManager.php');
 require_once('model/ConnectionManager.php');
 
+function adminAcces()
+{
+    $postManager = new PostManager(); // Création d'un objet
+    $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
+	require('view/backend/adminView.php');
+}
+
+
 function listPosts()
 {
     $postManager = new PostManager(); // Création d'un objet
@@ -37,11 +45,15 @@ function connectionMember($pseudo, $pass_hache)
 	$connectionManager = new ConnectionManager(); // Création d'un objet
 	$retour = $connectionManager->connectMember($pseudo, $pass_hache);
 	if ($retour) {
-		//echo ('Bonjour '. $pseudo . ', vous êtes connecté !');
 		session_start();
 		$_SESSION['pseudo'] = $pseudo;
-		//echo ('Bonjour '. $_SESSION['pseudo'] . ', vous êtes connecté !');
-		listPosts();
+		if ($retour['droit'] == 0) {
+			listPosts();
+		}
+		else {
+			//echo ('Bonjour '. $_SESSION['pseudo'] . ', vous êtes connecté !');
+			adminAcces();
+		}
 	}
 	else
 	{		

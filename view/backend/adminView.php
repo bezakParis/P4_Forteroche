@@ -8,6 +8,7 @@
 	<header>
 		<!--<p>Bonjour <?= $_SESSION['pseudo']; ?>&nbsp;&nbsp;&nbsp;&nbsp;</p>-->
 		<button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
+		<button type="button" class="button"><a href="index.php?action=ajouter">AJOUTER EPISODE</a></button>
 		<button type="button" class="button"><a href="index.php?action=deconnexion">SE DECONNECTER</a></button>
 	</header>
 	<section id="sect01">
@@ -21,6 +22,8 @@
 					<h3><?= htmlspecialchars($data['title']); ?>
 					le : <?= $data['creation_date_fr']; ?></h3>
 					<p><?= nl2br(htmlspecialchars($data['content'])); ?></p>
+					<p><a href="index.php?action=modifierPost&id=<?= $data['id']; ?>">Modifier</a></p>
+					<p><a href="index.php?action=supprimerPost&id=<?= $data['id']; ?>">Supprimer</a></p>
 					<p><a href="index.php?action=post&id=<?= $data['id']; ?>">Commentaires</a></p>
 				</div>
 				<br />
@@ -33,4 +36,4 @@
 			
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('templateAdmin.php'); ?>

@@ -143,3 +143,13 @@ header {
 .button:hover{
 	background-color:green;
 }
+
+#deconnexion {
+	text-align: center;
+	
+}
+
+#deconnexion p {
+	font-size: 2em;
+	
+}
