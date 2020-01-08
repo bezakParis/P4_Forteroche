@@ -1,13 +1,11 @@
 <?php
 
-namespace Forteroche\Blog;
-
 require_once("model/Manager.php");
 
 class ConnectionManager extends Manager
 {
 	
-    public function regMember($pseudo, $pwd, $email)
+    public function regMember($pseudo, $pass_hache, $email)
 	{
 		$db = $this->dbConnect();
 		$exist = $db->prepare('SELECT COUNT(*) AS nbr FROM p4_members WHERE pseudo=:var_pseudo');
@@ -21,7 +19,7 @@ class ConnectionManager extends Manager
 			$ajoutMember->execute(array(
 							'pseudo' => $pseudo,
 							'droit' => 0,
-							'pass' => $pwd,
+							'pass' => $pass_hache,
 							'email' => $email));
 			$resultat = true;
 		}				
@@ -34,7 +32,7 @@ class ConnectionManager extends Manager
 		//recuperation user selectionner
 		$req = $db->prepare('SELECT * FROM p4_members WHERE pseudo=:var_pseudo');
 		$req->execute(array(
-			'var_speudo' => $pseudo));
+			'var_pseudo' => $pseudo));
 		$resultat = $req->fetch();
 
 		// Comparaison du pass envoyé via le formulaire avec la base
@@ -48,9 +46,6 @@ class ConnectionManager extends Manager
 		else
 		{
 			if ($isPasswordCorrect) {
-				session_start();
-				//$_SESSION['id'] = $resultat['id'];
-				$_SESSION['pseudo'] = $pseudo;
 				$req->closeCursor();
 				return $resultat;
 			}

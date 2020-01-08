@@ -1,6 +1,5 @@
 <?php
 
-namespace Forteroche\Blog;
 
 require_once("model/Manager.php");
 

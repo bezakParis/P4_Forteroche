@@ -7,25 +7,16 @@
 		<button type="button" class="button"><a href="view/frontend/connexionView.php">SE CONNECTER</a></button>
 	</header>
 	<section id="sect01">
-	<h1>Jean Forteroche, Billet simple pour l'Alaska</h1> 
+		<h1>Jean Forteroche, Billet simple pour l'Alaska</h1> 
 	
-		<?php
-		while ($data = $posts->fetch())
-		{
-		?>
-			
-			<div class="news">
-				<h3><?= htmlspecialchars($data['title']); ?>
-				le : <?= $data['creation_date_fr']; ?></h3>
-				<p><?= nl2br(htmlspecialchars($data['content'])); ?>
-				<br />&nbsp;</p>
-			</div>
+		<div id="deconnexion">
+			<p>Vous êtes bien déconnecté(e).
 			<br />
+			<a href="index.php">Retour sur le site</a></p>
+			
+		</div>
+	
 		
-		<?php
-		}
-		$posts->closeCursor();
-		?>
 	</section>
 			
 <?php $content = ob_get_clean(); ?>

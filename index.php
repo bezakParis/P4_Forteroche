@@ -57,6 +57,9 @@ try { // On essaie de faire des choses
 				throw new Exception('il manque des informations !');
 			}
 		}
+        elseif ($_GET['action'] == 'deconnexion') {	
+			deconnectionMember();
+		}
     }
     else {
         listPosts();

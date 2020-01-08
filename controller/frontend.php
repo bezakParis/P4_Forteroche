@@ -6,43 +6,55 @@ require_once('model/ConnectionManager.php');
 
 function listPosts()
 {
-    $postManager = new Forteroche\Blog\PostManager(); // Création d'un objet
+    $postManager = new PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
-	
+	session_start();
 	if (isset($_SESSION['pseudo'])) {
-		require('view/frontend/listPostsViewMember.php');
+		require('view/frontend/listPostsMemberView.php');
 	}
 	else {
 		require('view/frontend/listPostsView.php');
 	}
 }
 
-function newMember($pseudo, $pwd, $email)
+function newMember($pseudo, $pass_hache, $email)
 {
-	$connectionManager = new Forteroche\Blog\ConnectionManager(); // Création d'un objet
-    $inserMember = $connectionManager->regMember($pseudo, $pwd, $email); // Appel d'une fonction de cet objet	
+	$connectionManager = new ConnectionManager(); // Création d'un objet
+    $inserMember = $connectionManager->regMember($pseudo, $pass_hache, $email); // Appel d'une fonction de cet objet	
 	if ($inserMember === false) {
         throw new Exception('Inscription impossible, le pseudo ' . $pseudo . ' n\'est pas disponible !');
     }
     else {
-		echo ('Bonjour '. $pseudo . ', inscription réussi !');
+		//echo ('Bonjour '. $pseudo . ', inscription réussi !');
 		//require('view/frontend/listPostsView.php');
-        //header('Location: index.php?action=connexion&pseudo=' . $pseudo&pass=);
+        connectionMember($pseudo, $pass_hache);
     }
 	
 }
 
 function connectionMember($pseudo, $pass_hache)
 {
-	$connectionManager = new Forteroche\Blog\ConnectionManager(); // Création d'un objet
+	$connectionManager = new ConnectionManager(); // Création d'un objet
 	$retour = $connectionManager->connectMember($pseudo, $pass_hache);
 	if ($retour) {
-		echo ('Bonjour '. $pseudo . ', vous êtes connecté !');
-		//require('view/frontend/listPostsView.php');
+		//echo ('Bonjour '. $pseudo . ', vous êtes connecté !');
+		session_start();
+		$_SESSION['pseudo'] = $pseudo;
+		//echo ('Bonjour '. $_SESSION['pseudo'] . ', vous êtes connecté !');
+		listPosts();
 	}
 	else
 	{		
 		throw new Exception('Mauvais identifiant ou mot de passe !');
 	}
 		
+}
+
+function deconnectionMember()
+{
+	session_start();
+	// Suppression des variables de session et de la session
+	$_SESSION = array();
+	session_destroy();
+	require('view/frontend/confirmDeconnexionView.php');
 }
