@@ -113,7 +113,18 @@ header {
 	background-color: white;
 	z-index: 10;
 }
-
+.hello-pseudo {
+	height: 40px;
+	margin-right: 20px;
+	background-color: #5CADD3;
+	font-size: 1em;
+	font-weight: normal;
+	color: black;
+	text-align: center;
+	padding: 10px;
+	border: 2px #4B7FB3 solid;
+	border-radius: 20px;
+}
 
 .button {
 	height: 40px;
@@ -123,7 +134,7 @@ header {
 	font-weight: normal;
 	color: white;
 	text-align: center;
-	padding: 3px;
+	padding: 10px;
 	border: 2px #4B7FB3 solid;
 	border-radius: 5px;
 	cursor: pointer;
