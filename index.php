@@ -60,6 +60,16 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'deconnexion') {	
 			deconnectionMember();
 		}
+        elseif ($_GET['action'] == 'ajoutCommentaire') {
+			if (isset($_POST['commentaire']) AND $_POST['commentaire'] != ""
+						AND isset($_POST['post_id']) AND $_POST['post_id'] != "" ) {
+				ajouterCommentaire($_POST['commentaire'], $_POST['post_id'] );
+			}
+			else {
+				
+				throw new Exception('il manque des informations !');
+			}
+		}
     }
     else {
         listPosts();

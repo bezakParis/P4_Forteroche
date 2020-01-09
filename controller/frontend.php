@@ -36,7 +36,25 @@ function post()
     $comments = $commentManager->getComments($_GET['id']);
 
     require('view/frontend/postView.php');
+	
 }
+
+function ajouterCommentaire($comment, $post_id)
+{
+	$postManager = new PostManager();
+    $commentManager = new CommentManager();
+	
+	session_start();
+    $comment = $commentManager->addComment($_SESSION['pseudo'], $comment, $post_id);
+
+	//actualisation de l'affichage avec nouveau commentaire
+	$post = $postManager->getPost($post_id);
+    $comments = $commentManager->getComments($post_id);
+
+    require('view/frontend/postView.php');
+}
+
+
 
 function newMember($pseudo, $pass_hache, $email)
 {

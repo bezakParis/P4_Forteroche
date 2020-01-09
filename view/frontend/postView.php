@@ -25,25 +25,25 @@
 		</div>		
 		
 		<div class="formulaire">	
-			<form action="ajoutCommentaire.php" method="post">
+			<form action="index.php?action=ajoutCommentaire" method="post">
 				<p>
 				<br />
 				<br />
-				<label for="message">Message :</label>
+				<label for="commentaire">Commentaire :</label>
 				<br />
-				<br /><textarea name="message" rows="8" cols="45"></textarea>
+				<br /><textarea name="commentaire" rows="8" cols="45"></textarea>
 				<br />
 				<br />
-				<!--<input type="hidden" name="ID_Billet" value="<?php echo $ID_var; ?>" />-->
+				<input type="hidden" name="post_id" value="<?php echo $data['id']; ?>" />
 				<br /><input type="submit" value="Envoyer" />
 				</p>
 			</form>				
 		</div>		
 		<?php
 			
-			if ($comment) {
+			if ($comments) {
 				// On affiche les commentaires	
-				while ($dataComment = $comment->fetch())
+				while ($dataComment = $comments->fetch())
 				{
 		?>
 		
@@ -54,7 +54,7 @@
 					</div>
 		<?php
 				}
-				$comment->closeCursor(); // Termine le traitement de la requête
+				$comments->closeCursor(); // Termine le traitement de la requête
 	
 			}
 			else {
