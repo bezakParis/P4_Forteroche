@@ -24,7 +24,7 @@
 					<p><?= nl2br(htmlspecialchars($data['content'])); ?></p>
 					<p><a href="index.php?action=modifierPost&id=<?= $data['id']; ?>">Modifier</a></p>
 					<p><a href="index.php?action=supprimerPost&id=<?= $data['id']; ?>">Supprimer</a></p>
-					<p><a href="index.php?action=post&id=<?= $data['id']; ?>">Commentaires</a></p>
+					<p><a href="index.php?action=postAdmin&id=<?= $data['id']; ?>">Commentaires</a></p>
 				</div>
 				<br />
 			

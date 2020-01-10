@@ -1,5 +1,6 @@
 <?php
 require('controller/frontend.php');
+require('controller/backend.php');
 
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
@@ -69,7 +70,29 @@ try { // On essaie de faire des choses
 				
 				throw new Exception('il manque des informations !');
 			}
-		}
+		}elseif ($_GET['action'] == 'postAdmin') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                postAdmin();
+            }
+            else {
+                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        }elseif ($_GET['action'] == 'supprimerComment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+               echo ('index: commentaire à supprimer');
+			   //deleteAdmin();
+            }
+            else {
+                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        }
+		
+		
+		
+		
+		
     }
     else {
         listPosts();

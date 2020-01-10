@@ -12,14 +12,19 @@ function adminAcces()
 	require('view/backend/adminView.php');
 }
 
-
 function listPosts()
 {
     $postManager = new PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
 	session_start();
 	if (isset($_SESSION['pseudo'])) {
-		require('view/frontend/listPostsMemberView.php');
+		if ($_SESSION['pseudo'] == "admin") {
+			require('view/backend/adminView.php');
+		}
+		else {
+			require('view/frontend/listPostsMemberView.php');
+		}
+		
 	}
 	else {
 		require('view/frontend/listPostsView.php');

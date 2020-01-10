@@ -20,7 +20,7 @@
 				
 		<div class="news"> 
 			<h3><?php echo htmlspecialchars($data['title']); ?> le : <?php echo $data['creation_date_fr']; ?></h3>
-			<p><?php echo nl2br(htmlspecialchars($data['content'])); // nl2br permet de convertir les retours à la ligne en balises HTML <br /> ?>
+			<p><?php echo nl2br(htmlspecialchars($data['content'])); // nl2br permet de convertir les retours à la ligne en balises HTML <br /> ?></p>
 			<br />&nbsp;</p>
 		</div>		
 		
@@ -51,6 +51,7 @@
 					<div class="commentaires">
 						<h5><?php echo htmlspecialchars($dataComment['pseudo']); ?> le : <?php echo $dataComment['comment_date_fr']; ?></h5>
 						<p><?php echo nl2br(htmlspecialchars($dataComment['comment'])); // nl2br permet de convertir les retours à la ligne en balises HTML <br />  ?></p>
+						<p><a href="index.php?action=supprimerComment&id=<?= $dataComment['id']; ?>">Supprimer</a></p>
 					</div>
 					<p>&nbsp;</p>
 		<?php
@@ -81,4 +82,4 @@
 			
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('templateAdmin.php'); ?>

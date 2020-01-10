@@ -43,22 +43,25 @@ h1
 
 .commentaires
 {
-    width:50%;
-    margin:auto;
+    width: 50%;
+    margin: auto;
+	background-color: #FFD185;
+	padding-left: 10px;
 }
 
-.commentaires h6
-{
-    color:black;
-    font-size:0.6em;
-    margin-bottom:0px;
-}
-
-.commentaires h3
+.commentaires h5
 {
     color:black;
     font-size:0.9em;
     margin-bottom:0px;
+}
+
+h3
+{
+    color:black;
+    font-size:1.2em;
+    margin-bottom:0px;
+	text-align: center;
 }
 
 .formulaire
