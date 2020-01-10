@@ -17,8 +17,8 @@ function listPosts()
     $postManager = new PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
 	session_start();
-	if (isset($_SESSION['pseudo'])) {
-		if ($_SESSION['pseudo'] == "admin") {
+	if (isset($_SESSION['pseudo']) AND isset($_SESSION['droit'])) {
+		if ($_SESSION['pseudo'] == "admin" AND $_SESSION['droit'] == 1) {
 			require('view/backend/adminView.php');
 		}
 		else {
@@ -39,7 +39,7 @@ function post()
 
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
-
+	
     require('view/frontend/postView.php');
 	
 }
@@ -50,7 +50,7 @@ function ajouterCommentaire($comment, $post_id)
     $commentManager = new CommentManager();
 	
 	session_start();
-    $comment = $commentManager->addComment($_SESSION['pseudo'], $comment, $post_id);
+    $comment = $commentManager->addComment($_SESSION['member_id'], $comment, $post_id);
 
 	//actualisation de l'affichage avec nouveau commentaire
 	$post = $postManager->getPost($post_id);
@@ -83,8 +83,11 @@ function connectionMember($pseudo, $pass_hache)
 	if ($retour) {
 		session_start();
 		$_SESSION['pseudo'] = $pseudo;
-		if ($retour['droit'] == 0) {
+		$_SESSION['member_id'] = $retour['id'];
+		$_SESSION['droit'] = $retour['droit'];
+		if ($retour['droit'] == 0) { //utilisateur simple = 0 admin = 1
 			listPosts();
+			//echo ('via SESSION  :  pseudo = '.$_SESSION['pseudo'] . ' - droit = ' . $_SESSION['droit'] . ' - ID = ' . $_SESSION['member_id']);
 		}
 		else {
 			//echo ('Bonjour '. $_SESSION['pseudo'] . ', vous êtes connecté !');
@@ -97,6 +100,26 @@ function connectionMember($pseudo, $pass_hache)
 	}
 		
 }
+
+
+function signalerComment($comment_id, $post_id)
+{
+    $postManager = new PostManager();
+    $commentManager = new CommentManager();
+	
+	session_start();
+    $comment = $commentManager->updateComment($comment_id);
+
+	//actualisation de l'affichage avec nouveau commentaire
+	$post = $postManager->getPost($post_id);
+    $comments = $commentManager->getComments($post_id);
+
+    require('view/frontend/postView.php');
+	
+}
+
+
+
 
 function deconnectionMember()
 {

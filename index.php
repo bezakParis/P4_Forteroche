@@ -7,6 +7,8 @@ try { // On essaie de faire des choses
         if ($_GET['action'] == 'listPosts') {
             listPosts();
         }
+		
+		
         elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
@@ -16,6 +18,8 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+		
+		
         elseif ($_GET['action'] == 'inscription') {	
 			if (isset($_POST['pseudo']) AND $_POST['pseudo'] != "" 
 						AND isset($_POST['pwd']) AND $_POST['pwd'] != ""
@@ -45,6 +49,8 @@ try { // On essaie de faire des choses
 				throw new Exception('il manque des informations !');
 			}
 		}
+		
+		
         elseif ($_GET['action'] == 'connexion') {	
 			if (isset($_POST['pseudo']) AND $_POST['pseudo'] != "" 
 						AND isset($_POST['pwd']) AND $_POST['pwd'] != "") {
@@ -58,9 +64,13 @@ try { // On essaie de faire des choses
 				throw new Exception('il manque des informations !');
 			}
 		}
+		
+		
         elseif ($_GET['action'] == 'deconnexion') {	
 			deconnectionMember();
 		}
+		
+		
         elseif ($_GET['action'] == 'ajoutCommentaire') {
 			if (isset($_POST['commentaire']) AND $_POST['commentaire'] != ""
 						AND isset($_POST['post_id']) AND $_POST['post_id'] != "" ) {
@@ -70,19 +80,37 @@ try { // On essaie de faire des choses
 				
 				throw new Exception('il manque des informations !');
 			}
-		}elseif ($_GET['action'] == 'postAdmin') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+		}
+		
+		
+		elseif ($_GET['action'] == 'postAdmin') {
+            if (isset($_GET['id']) AND $_GET['id'] > 0) {
                 postAdmin();
             }
             else {
                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
-        }elseif ($_GET['action'] == 'supprimerComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+        }
+		
+		
+		elseif ($_GET['action'] == 'supprimerComment') {
+            if (isset($_GET['id']) AND $_GET['id'] > 0) {
                echo ('index: commentaire à supprimer');
-			   //deleteAdmin();
+			   //deleteComment();
             }
+            else {
+                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant de billet envoyé');
+            }
+        }
+		
+		elseif ($_GET['action'] == 'signalerComment') {
+            if (isset($_GET['commentId']) AND $_GET['commentId'] > 0
+				AND isset($_GET['postId']) AND $_GET['postId'] > 0) {
+               //echo ('index: commentaire signalé pour modération ' . $_GET['commentId'] . $_GET['postId']);
+			   signalerComment($_GET['commentId'], $_GET['postId']);
+            }	
             else {
                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                 throw new Exception('Aucun identifiant de billet envoyé');

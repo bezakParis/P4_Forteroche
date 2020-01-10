@@ -49,8 +49,24 @@
 		?>
 		
 					<div class="commentaires">
-						<h5><?php echo htmlspecialchars($dataComment['pseudo']); ?> le : <?php echo $dataComment['comment_date_fr']; ?></h5>
-						<p><?php echo nl2br(htmlspecialchars($dataComment['comment'])); // nl2br permet de convertir les retours à la ligne en balises HTML <br />  ?></p>
+						<?php
+							if ($dataComment['c_moderate'] == 1) {
+						?>
+							<p>Insérer symbole pour indiquer que ce commentaire a été signalé</p>
+						<?php	
+							}
+						?>
+						<h5><?php echo htmlspecialchars($dataComment['m_pseudo']); ?> le : <?php echo $dataComment['comment_date_fr']; ?></h5>
+						<p><?php echo nl2br(htmlspecialchars($dataComment['c_comment'])); // nl2br permet de convertir les retours à la ligne en balises HTML <br />  ?></p>
+						
+						<?php
+							if ($dataComment['c_moderate'] == 0) {
+						?>
+							<p><a href="index.php?action=signalerComment&commentId=<?= $dataComment['c_id']; ?>&postId=<?= $data['id']; ?>"">Signaler</a></p>
+						<?php	
+							}
+						?>
+						<p>&nbsp;</p>
 					</div>
 					<p>&nbsp;</p>
 		<?php
