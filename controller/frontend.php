@@ -17,8 +17,9 @@ function listPosts()
     $postManager = new PostManager(); // Création d'un objet
     $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
 	session_start();
-	if (isset($_SESSION['pseudo']) AND isset($_SESSION['droit'])) {
-		if ($_SESSION['pseudo'] == "admin" AND $_SESSION['droit'] == 1) {
+	if (isset($_SESSION['pseudo']) AND $_SESSION['pseudo'] != "" 
+				AND isset($_SESSION['droit']) AND $_SESSION['droit'] != "") {
+		if ($_SESSION['droit'] == 1) {
 			require('view/backend/adminView.php');
 		}
 		else {
