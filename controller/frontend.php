@@ -56,7 +56,12 @@ function ajouterCommentaire($comment, $post_id)
         throw new Exception('Impossible d\'ajouter le commentaire !'); 
     }
     else {
-        header('Location: index.php?action=post&id=' . $post_id); 
+		session_start();
+		if ($_SESSION['droit'] == 1) {
+			header('Location: index.php?action=postAdmin&id=' . $post_id);
+		}else {
+			header('Location: index.php?action=post&id=' . $post_id);
+		} 
     }
 }
 

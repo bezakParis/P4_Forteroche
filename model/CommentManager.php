@@ -5,7 +5,7 @@ require_once("model/Manager.php");
 
 class CommentManager extends Manager
 {
-   public function getComments($postId)
+	public function getComments($postId)
     {/*
         $db = $this->dbConnect();
         $comments = $db->prepare('SELECT id, member_id, comment, moderate, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM p4_comments WHERE post_id = ? ORDER BY comment_date DESC');
@@ -32,7 +32,7 @@ class CommentManager extends Manager
     }
 	
 	
-   public function addComment($member_id, $comment, $post_id)
+	public function addComment($member_id, $comment, $post_id)
     {
 		$db = $this->dbConnect();
 		$insert = $db->prepare('INSERT INTO p4_comments(post_id, member_id, comment, moderate, comment_date) VALUES (:post_id, :member_id, :comment, :moderate, NOW())');
@@ -47,16 +47,25 @@ class CommentManager extends Manager
     }
 	
 	
-   public function updateComment($comment_id)
+	public function updateComment($comment_id)
     {
 		$db = $this->dbConnect();
 			
-		$insert = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
-		$insert->execute(array(
+		$req = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
+		$req->execute(array(
 			'comment_id' => $comment_id,
 			'moderate' => 1,
 			));
 		
-		return $insert;	
+		return $req;	
     }
+	
+	public function removeComment($id)
+    { 
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM p4_comments WHERE id= ?');
+		$req->execute(array($id));
+		
+		return $req;
+	}
 }

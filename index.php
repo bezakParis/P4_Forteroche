@@ -4,12 +4,15 @@ require('controller/backend.php');
 
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
+		
         if ($_GET['action'] == 'listPosts') {
+			
             listPosts();
         }
 		
 		
         elseif ($_GET['action'] == 'post') {
+			
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
             }
@@ -21,6 +24,7 @@ try { // On essaie de faire des choses
 		
 		
         elseif ($_GET['action'] == 'inscription') {	
+		
 			if (isset($_POST['pseudo']) AND $_POST['pseudo'] != "" 
 						AND isset($_POST['pwd']) AND $_POST['pwd'] != ""
 						AND isset($_POST['checkPwd']) AND $_POST['checkPwd'] != ""
@@ -52,6 +56,7 @@ try { // On essaie de faire des choses
 		
 		
         elseif ($_GET['action'] == 'connexion') {	
+		
 			if (isset($_POST['pseudo']) AND $_POST['pseudo'] != "" 
 						AND isset($_POST['pwd']) AND $_POST['pwd'] != "") {
 					
@@ -67,6 +72,7 @@ try { // On essaie de faire des choses
 		
 		
         elseif ($_GET['action'] == 'deconnexion') {	
+		
 			deconnectionMember();
 		}
 		
@@ -101,6 +107,7 @@ try { // On essaie de faire des choses
 		
 		
 		elseif ($_GET['action'] == 'ajouterPost') {
+			
 			session_start();
 			if ($_SESSION['droit'] == 1) {
 				
@@ -120,6 +127,7 @@ try { // On essaie de faire des choses
 		
 		
 		elseif ($_GET['action'] == 'supprimerPost') {
+			
 			session_start();
 			if ($_SESSION['droit'] == 1) {
 				
@@ -137,17 +145,25 @@ try { // On essaie de faire des choses
 		
 		
 		elseif ($_GET['action'] == 'supprimerComment') {
-            if (isset($_GET['id']) AND $_GET['id'] > 0) {
-               echo ('index: commentaire à supprimer');
-			   //deleteComment();
+			
+			session_start();
+			if ($_SESSION['droit'] == 1) {
+				
+				if (isset($_GET['id']) AND $_GET['id'] != ""
+					AND isset($_GET['post_id']) AND $_GET['post_id'] != "") {
+					supprimerComment($_GET['id'], $_GET['post_id']);
+				}
+				else {
+					throw new Exception('probleme ID');
+				}
             }
             else {
-                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('Non authorisé');
             }
-        }
+		}
 		
 		elseif ($_GET['action'] == 'signalerComment') {
+			
             if (isset($_GET['commentId']) AND $_GET['commentId'] > 0
 				AND isset($_GET['postId']) AND $_GET['postId'] > 0) {
                //echo ('index: commentaire signalé pour modération ' . $_GET['commentId'] . $_GET['postId']);
@@ -165,6 +181,7 @@ try { // On essaie de faire des choses
 		
     }
     else {
+		
         listPosts();
     }
 }

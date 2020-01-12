@@ -41,3 +41,18 @@ function supprimerPost($id)
         header('Location: index.php?action=listPosts'); 
     }
 }
+
+
+
+
+function supprimerComment($id, $post_id)
+{
+	$commentManager = new CommentManager();
+	$comment = $commentManager->removeComment($id);
+	if ($comment === false) {
+        throw new Exception('Impossible de supprimer le commentaire !'); 
+    }
+    else {
+		header('Location: index.php?action=postAdmin&id=' . $post_id); 
+    }
+}

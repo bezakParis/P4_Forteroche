@@ -6,8 +6,8 @@
 <?php ob_start(); ?>
 
 	<header>
-		<!--<p>Bonjour <?= $_SESSION['pseudo']; ?>&nbsp;&nbsp;&nbsp;&nbsp;</p>-->
 		<button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
+		<button type="button" class="button"><a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">RETOUR</a></button>
 		<button type="button" class="button"><a href="index.php?action=deconnexion">SE DECONNECTER</a></button>
 	</header>
 	
@@ -52,13 +52,15 @@
 						<?php
 							if ($dataComment['c_moderate'] == 1) {
 						?>
-							<p>Insérer symbole pour indiquer que ce commentaire a été signalé</p>
+							<p><strong>Insérer symbole pour indiquer que ce commentaire a été signalé</strong></p>
 						<?php	
 							}
 						?>
 						<h5><?php echo htmlspecialchars($dataComment['m_pseudo']); ?> le : <?php echo $dataComment['comment_date_fr']; ?></h5>
 						<p><?php echo nl2br(htmlspecialchars($dataComment['c_comment'])); // nl2br permet de convertir les retours à la ligne en balises HTML <br />  ?></p>
-						<p><a href="index.php?action=supprimerComment&id=<?= $dataComment['c_id']; ?>">Supprimer</a></p>
+						<p><a href="index.php?action=supprimerComment&id=<?= $dataComment['c_id']; ?>&post_id=<?php echo $data['id']; ?>">Supprimer</a></p>
+						<p><a href="index.php?action=accepterComment&id=<?= $dataComment['c_id']; ?>&post_id=<?php echo $data['id']; ?>">Accepter</a></p>
+
 					</div>
 					<p>&nbsp;</p>
 		<?php
