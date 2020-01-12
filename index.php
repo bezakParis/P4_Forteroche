@@ -162,6 +162,25 @@ try { // On essaie de faire des choses
             }
 		}
 		
+		
+		elseif ($_GET['action'] == 'accepterComment') {
+			
+			session_start();
+			if ($_SESSION['droit'] == 1) {
+				
+				if (isset($_GET['id']) AND $_GET['id'] != ""
+					AND isset($_GET['post_id']) AND $_GET['post_id'] != "") {
+					accepterComment($_GET['id'], $_GET['post_id']);
+				}
+				else {
+					throw new Exception('probleme ID');
+				}
+            }
+            else {
+                throw new Exception('Non authorisé');
+            }
+		}
+		
 		elseif ($_GET['action'] == 'signalerComment') {
 			
             if (isset($_GET['commentId']) AND $_GET['commentId'] > 0

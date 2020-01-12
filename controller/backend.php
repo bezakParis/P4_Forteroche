@@ -16,7 +16,6 @@ function postAdmin()
 	require('view/backend/postAdminView.php');
 }
 
-
 function ajouterPost($titre, $contenu)
 {
 	$postManager = new PostManager();
@@ -28,7 +27,6 @@ function ajouterPost($titre, $contenu)
         header('Location: index.php?action=listPosts'); 
     }
 }
-
 
 function supprimerPost($id)
 {
@@ -42,15 +40,24 @@ function supprimerPost($id)
     }
 }
 
-
-
-
 function supprimerComment($id, $post_id)
 {
 	$commentManager = new CommentManager();
 	$comment = $commentManager->removeComment($id);
 	if ($comment === false) {
         throw new Exception('Impossible de supprimer le commentaire !'); 
+    }
+    else {
+		header('Location: index.php?action=postAdmin&id=' . $post_id); 
+    }
+}
+
+function accepterComment($id, $post_id)
+{
+	$commentManager = new CommentManager();
+	$comment = $commentManager->updateComment($id);
+	if ($comment === false) {
+        throw new Exception('Impossible de modifier le statut du commentaire !'); 
     }
     else {
 		header('Location: index.php?action=postAdmin&id=' . $post_id); 

@@ -47,14 +47,14 @@ class CommentManager extends Manager
     }
 	
 	
-	public function updateComment($comment_id)
+	public function updateComment($id)
     {
 		$db = $this->dbConnect();
 			
 		$req = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
 		$req->execute(array(
-			'comment_id' => $comment_id,
-			'moderate' => 1,
+			'comment_id' => $id,
+			'moderate' => 0,
 			));
 		
 		return $req;	
