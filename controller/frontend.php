@@ -51,12 +51,12 @@ function ajouterCommentaire($comment, $post_id)
 	
 	session_start();
     $comment = $commentManager->addComment($_SESSION['member_id'], $comment, $post_id);
-
-	//actualisation de l'affichage avec nouveau commentaire
-	$post = $postManager->getPost($post_id);
-    $comments = $commentManager->getComments($post_id);
-
-    require('view/frontend/postView.php');
+	if ($comment === false) {
+        throw new Exception('Impossible d\'ajouter le commentaire !'); 
+    }
+    else {
+        header('Location: index.php?action=post&id=' . $post_id); 
+    }
 }
 
 
@@ -109,12 +109,12 @@ function signalerComment($comment_id, $post_id)
 	
 	session_start();
     $comment = $commentManager->updateComment($comment_id);
-
-	//actualisation de l'affichage avec nouveau commentaire
-	$post = $postManager->getPost($post_id);
-    $comments = $commentManager->getComments($post_id);
-
-    require('view/frontend/postView.php');
+	if ($comment === false) {
+        throw new Exception('Impossible de signaler le commentaire !'); 
+    }
+    else {
+        header('Location: index.php?action=post&id=' . $post_id); 
+    }
 	
 }
 

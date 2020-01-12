@@ -21,5 +21,23 @@ function ajouterPost($titre, $contenu)
 {
 	$postManager = new PostManager();
 	$post = $postManager->addPost($titre, $contenu);
-	header('Location: index.php?action=listPosts');
+	if ($post === false) {
+        throw new Exception('Impossible d\'ajouter le post !'); 
+    }
+    else {
+        header('Location: index.php?action=listPosts'); 
+    }
+}
+
+
+function supprimerPost($id)
+{
+	$postManager = new PostManager();
+	$post = $postManager->removePost($id);
+	if ($post === false) {
+        throw new Exception('Impossible de supprimer le post !'); 
+    }
+    else {
+        header('Location: index.php?action=listPosts'); 
+    }
 }

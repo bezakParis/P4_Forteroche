@@ -33,5 +33,11 @@ class PostManager extends Manager
 				'p_contenu' => $contenu));
 	}
 	
+	public function removePost($id)
+    { 
+        $db = $this->dbConnect();
+        $req = $db->exec('DELETE INTO p4_posts WHERE id='.$id);
+	}
+	
 	
 }
