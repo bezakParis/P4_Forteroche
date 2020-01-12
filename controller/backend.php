@@ -7,18 +7,19 @@ require_once('model/ConnectionManager.php');
 
 function postAdmin()
 {	
-	session_start();
-	if ($_SESSION['droit']) {
-		$postManager = new PostManager();
-		$commentManager = new CommentManager();
+	$postManager = new PostManager();
+	$commentManager = new CommentManager();
 
-		$post = $postManager->getPost($_GET['id']);
-		$comments = $commentManager->getComments($_GET['id']);
+	$post = $postManager->getPost($_GET['id']);
+	$comments = $commentManager->getComments($_GET['id']);
 
-		require('view/backend/postAdminView.php');
-		
-	}else {
-		throw new Exception('Non authorisé !');
-	}
-	
+	require('view/backend/postAdminView.php');
+}
+
+
+function ajouterPost($titre, $contenu)
+{
+	$postManager = new PostManager();
+	$post = $postManager->addPost($titre, $contenu);
+	header('Location: index.php?action=listPosts');
 }

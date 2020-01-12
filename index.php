@@ -77,19 +77,44 @@ try { // On essaie de faire des choses
 				ajouterCommentaire($_POST['commentaire'], $_POST['post_id'] );
 			}
 			else {
-				
 				throw new Exception('il manque des informations !');
 			}
 		}
 		
 		
 		elseif ($_GET['action'] == 'postAdmin') {
-            if (isset($_GET['id']) AND $_GET['id'] > 0) {
-                postAdmin();
+
+			session_start();
+			if ($_SESSION['droit'] == 1) {
+				if (isset($_GET['id']) AND $_GET['id'] > 0) {
+					postAdmin();
+				}
+				else {
+					
+					throw new Exception('Aucun identifiant de billet envoyé');
+				}
+			}
+            else {
+                throw new Exception('Non authorisé');
+            }
+        }
+		
+		
+		elseif ($_GET['action'] == 'ajouterPost') {
+			session_start();
+			if ($_SESSION['droit'] == 1) {
+				
+				if (isset($_POST['titre']) AND isset($_POST['contenu'])  AND $_POST['titre'] != "" AND $_POST['contenu'] != "") {
+					$titre = htmlspecialchars($_POST['titre']);
+					$contenu = htmlspecialchars($_POST['contenu']);
+					ajouterPost($titre, $contenu);
+				}
+				else {
+					throw new Exception('il manque des informations !');
+				}
             }
             else {
-                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('Non authorisé');
             }
         }
 		
