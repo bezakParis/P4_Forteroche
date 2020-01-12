@@ -123,8 +123,8 @@ try { // On essaie de faire des choses
 			session_start();
 			if ($_SESSION['droit'] == 1) {
 				
-				if (isset($_POST['id']) AND $_POST['id'] != "") {
-					supprimerPost($_POST['id']);
+				if (isset($_GET['id']) AND $_GET['id'] != "") {
+					supprimerPost($_GET['id']);
 				}
 				else {
 					throw new Exception('probleme ID');

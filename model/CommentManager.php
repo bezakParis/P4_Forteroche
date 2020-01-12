@@ -29,7 +29,6 @@ class CommentManager extends Manager
         $comments->execute(array($postId));
 		
 		return $comments;
-		
     }
 	
 	
@@ -42,7 +41,9 @@ class CommentManager extends Manager
 			'member_id' => $member_id, 
 			'comment' => $comment,
 			'moderate' => 0,
-			));		
+			));
+		
+		return $insert;
     }
 	
 	
@@ -54,6 +55,8 @@ class CommentManager extends Manager
 		$insert->execute(array(
 			'comment_id' => $comment_id,
 			'moderate' => 1,
-			));		
+			));
+		
+		return $insert;	
     }
 }
