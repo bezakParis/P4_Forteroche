@@ -5,7 +5,7 @@ require_once("model/Manager.php");
 class ConnectionManager extends Manager
 {
 	
-    public function regMember($pseudo, $pass_hache, $email)
+    public function checkMember($pseudo)
 	{
 		$db = $this->dbConnect();
 		$exist = $db->prepare('SELECT COUNT(*) AS nbr FROM p4_members WHERE pseudo=:var_pseudo');
@@ -13,17 +13,20 @@ class ConnectionManager extends Manager
 			'var_pseudo' => $pseudo));
 		$donnees = $exist->fetch();
 		$exist->closeCursor();
-		$resultat=false;
-		if ($donnees['nbr'] == 0) { // si pseudo inexistant dans la table insertion
-			$ajoutMember = $db->prepare('INSERT INTO p4_members(pseudo, droit, pass, email, registration_date) VALUES(:pseudo, :droit, :pass, :email, NOW())');
-			$ajoutMember->execute(array(
-							'pseudo' => $pseudo,
-							'droit' => 0,
-							'pass' => $pass_hache,
-							'email' => $email));
-			$resultat = true;
-		}				
-		return $resultat;
+		return $donnees;
+    }
+	
+    public function regMember($pseudo, $pass, $email)
+	{
+		$db = $this->dbConnect();
+		$pass_hache = password_hash($pass, PASSWORD_DEFAULT);
+		$ajoutMember = $db->prepare('INSERT INTO p4_members(pseudo, droit, pass, email, registration_date) VALUES(:pseudo, :droit, :pass, :email, NOW())');
+		$ajoutMember->execute(array(
+						'pseudo' => $pseudo,
+						'droit' => 0,
+						'pass' => $pass_hache,
+						'email' => $email));
+		return $ajoutMember;
     }
 	
 	public function connectMember($pseudo)

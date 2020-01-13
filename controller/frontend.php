@@ -69,15 +69,24 @@ function ajouterCommentaire($comment, $post_id)
 
 function newMember($pseudo, $pass, $email)
 {
-	$pass_hache = password_hash($pass, PASSWORD_DEFAULT);
 	$connectionManager = new ConnectionManager(); // Création d'un objet
-    $inserMember = $connectionManager->regMember($pseudo, $pass_hache, $email); // Appel d'une fonction de cet objet	
-	if ($inserMember === false) {
+	
+	$verifMember = $connectionManager->checkMember($pseudo);
+	
+	if ($verifMember['nbr'] == 0) {
+		
+		$req=$connectionManager->regMember($pseudo, $pass, $email);
+		
+			if (!$req) {
+				throw new Exception('Inscription impossible, réessayer plus tard !');
+			}
+			else {
+				connectionMember($pseudo, $pass);
+			}
+	}
+	else {
         throw new Exception('Inscription impossible, le pseudo ' . $pseudo . ' n\'est pas disponible !');
-    }
-    else {
-        connectionMember($pseudo, $pass);
-    }
+	}
 	
 }
 
