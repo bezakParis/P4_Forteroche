@@ -20,7 +20,7 @@
 				
 		<div class="news"> 
 			<h3><?php echo htmlspecialchars($data['title']); ?> le : <?php echo $data['creation_date_fr']; ?></h3>
-			<p><?php echo nl2br(htmlspecialchars($data['content'])); // nl2br permet de convertir les retours à la ligne en balises HTML <br /> ?></p>
+			<p><?php echo $data['content']; // nl2br permet de convertir les retours à la ligne en balises HTML <br /> ?></p>
 			<br />&nbsp;</p>
 		</div>		
 		

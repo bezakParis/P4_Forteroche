@@ -113,7 +113,8 @@ try { // On essaie de faire des choses
 				
 				if (isset($_POST['titre']) AND isset($_POST['contenu'])  AND $_POST['titre'] != "" AND $_POST['contenu'] != "") {
 					$titre = htmlspecialchars($_POST['titre']);
-					$contenu = htmlspecialchars($_POST['contenu']);
+					//$contenu = htmlspecialchars($_POST['contenu']);
+					$contenu = $_POST['contenu'];
 					ajouterPost($titre, $contenu);
 				}
 				else {

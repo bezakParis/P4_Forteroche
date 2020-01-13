@@ -17,7 +17,7 @@
 			<div class="news">
 				<h3><?= htmlspecialchars($data['title']); ?>
 				le : <?= $data['creation_date_fr']; ?></h3>
-				<p><?= nl2br(htmlspecialchars($data['content'])); ?>
+				<p><?= $data['content']; ?>
 				<br />&nbsp;</p>
 			</div>
 			<br />
