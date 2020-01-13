@@ -7,7 +7,7 @@
 
 	<header>
 		<button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
-		<button type="button" class="button"><a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">RETOUR</a></button>
+		<button type="button" class="button"><a href="http://forteroche.zakbe.fr">HOME</a></button>
 		<button type="button" class="button"><a href="index.php?action=deconnexion">SE DECONNECTER</a></button>
 	</header>
 	
