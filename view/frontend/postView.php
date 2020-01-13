@@ -52,7 +52,7 @@
 						<?php
 							if ($dataComment['c_moderate'] == 1) {
 						?>
-							<p>Insérer symbole pour indiquer que ce commentaire a été signalé</p>
+							<p><strong>Insérer symbole pour indiquer que ce commentaire a été signalé</strong></p>
 						<?php	
 							}
 						?>

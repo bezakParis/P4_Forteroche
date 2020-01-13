@@ -114,7 +114,7 @@ function signalerComment($comment_id, $post_id)
     $commentManager = new CommentManager();
 	
 	session_start();
-    $comment = $commentManager->updateComment($comment_id);
+    $comment = $commentManager->moderateComment($comment_id);
 	if ($comment === false) {
         throw new Exception('Impossible de signaler le commentaire !'); 
     }
