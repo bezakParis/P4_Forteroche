@@ -28,6 +28,26 @@ function ajouterPost($titre, $contenu)
     }
 }
 
+function modifierPost()
+{	
+	$postManager = new PostManager();
+	$post = $postManager->getPost($_GET['id']);
+
+	require('view/backend/modifierPostView.php');
+}
+
+function validerPost($id, $titre, $contenu)
+{
+	$postManager = new PostManager();
+	$post = $postManager->updatePost($id, $titre, $contenu);
+	if ($post === false) {
+        throw new Exception('Impossible de modifier le post !'); 
+    }
+    else {
+        header('Location: index.php?action=listPosts'); 
+    }
+}
+
 function supprimerPost($id)
 {
 	$postManager = new PostManager();

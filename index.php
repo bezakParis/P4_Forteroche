@@ -126,6 +126,28 @@ try { // On essaie de faire des choses
         }
 		
 		
+		elseif ($_GET['action'] == 'validerPost') {
+			
+			session_start();
+			if ($_SESSION['droit'] == 1) {
+				
+				if (isset($_POST['post_id']) AND $_POST['post_id'] != "" AND 
+						isset($_POST['titre']) AND isset($_POST['contenu'])
+						AND $_POST['titre'] != "" AND $_POST['contenu'] != "") {
+					$titre = htmlspecialchars($_POST['titre']);
+					$contenu = htmlspecialchars($_POST['contenu']);
+					validerPost($_POST['post_id'], $titre, $contenu);
+				}
+				else {
+					throw new Exception('il manque des informations !');
+				}
+            }
+            else {
+                throw new Exception('Non authorisé');
+            }
+        }
+		
+		
 		elseif ($_GET['action'] == 'supprimerPost') {
 			
 			session_start();
@@ -133,6 +155,24 @@ try { // On essaie de faire des choses
 				
 				if (isset($_GET['id']) AND $_GET['id'] != "") {
 					supprimerPost($_GET['id']);
+				}
+				else {
+					throw new Exception('probleme ID');
+				}
+            }
+            else {
+                throw new Exception('Non authorisé');
+            }
+        }
+		
+		
+		elseif ($_GET['action'] == 'modifierPost') {
+			
+			session_start();
+			if ($_SESSION['droit'] == 1) {
+				
+				if (isset($_GET['id']) AND $_GET['id'] != "") {
+					modifierPost($_GET['id']);
 				}
 				else {
 					throw new Exception('probleme ID');
