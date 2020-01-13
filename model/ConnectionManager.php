@@ -26,8 +26,8 @@ class ConnectionManager extends Manager
 		return $resultat;
     }
 	
-	public function connectMember($pseudo, $pass_hache)
-	{
+	public function connectMember($pseudo)
+	{	
 		$db = $this->dbConnect();
 		//recuperation user selectionner
 		$req = $db->prepare('SELECT * FROM p4_members WHERE pseudo=:var_pseudo');
@@ -35,25 +35,7 @@ class ConnectionManager extends Manager
 			'var_pseudo' => $pseudo));
 		$resultat = $req->fetch();
 
-		// Comparaison du pass envoyé via le formulaire avec la base
-		$isPasswordCorrect = password_verify($pass_hache, $resultat['pass']);
-
-		if (!$resultat)
-		{
-			$req->closeCursor();
-			return $resultat;
-		}
-		else
-		{
-			if ($isPasswordCorrect) {
-				$req->closeCursor();
-				return $resultat;
-			}
-			else {
-				$req->closeCursor();
-				return $resultat;
-			}
-		}
+		return $resultat;
     }
 	
 	

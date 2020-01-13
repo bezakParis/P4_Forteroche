@@ -41,7 +41,7 @@ try { // On essaie de faire des choses
 					$pseudo = htmlspecialchars($_POST['pseudo']);
 					$email = htmlspecialchars($_POST['email']); // On rend inoffensives les balises HTML que le visiteur a pu rentrer
 					if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $email)) {
-						newMember($pseudo, $pass_hache, $email);
+						newMember($pseudo, $pass, $email);
 					}
 					else
 					{
@@ -60,10 +60,10 @@ try { // On essaie de faire des choses
 			if (isset($_POST['pseudo']) AND $_POST['pseudo'] != "" 
 						AND isset($_POST['pwd']) AND $_POST['pwd'] != "") {
 					
-				$pass_hache = password_hash($_POST['pwd'], PASSWORD_DEFAULT);
 				$pseudo = htmlspecialchars($_POST['pseudo']);
+				$pass = htmlspecialchars($_POST['pwd']);
 				
-				connectionMember($pseudo, $pass_hache);
+				connectionMember($pseudo, $pass);
 			}
 			else {
 				throw new Exception('il manque des informations !');

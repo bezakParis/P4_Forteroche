@@ -9,6 +9,7 @@
 		<script>
 			tinymce.init({
 			  selector: 'textarea',
+			  language:   "fr_FR",
 			  language_url : '../../public/langs/fr_FR.js'  // site absolute URL
 			});
 		</script>

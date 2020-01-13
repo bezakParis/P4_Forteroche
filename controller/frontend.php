@@ -67,36 +67,37 @@ function ajouterCommentaire($comment, $post_id)
 
 
 
-function newMember($pseudo, $pass_hache, $email)
+function newMember($pseudo, $pass, $email)
 {
+	$pass_hache = password_hash($pass, PASSWORD_DEFAULT);
 	$connectionManager = new ConnectionManager(); // Création d'un objet
     $inserMember = $connectionManager->regMember($pseudo, $pass_hache, $email); // Appel d'une fonction de cet objet	
 	if ($inserMember === false) {
         throw new Exception('Inscription impossible, le pseudo ' . $pseudo . ' n\'est pas disponible !');
     }
     else {
-		//echo ('Bonjour '. $pseudo . ', inscription réussi !');
-		//require('view/frontend/listPostsView.php');
-        connectionMember($pseudo, $pass_hache);
+        connectionMember($pseudo, $pass);
     }
 	
 }
 
-function connectionMember($pseudo, $pass_hache)
+function connectionMember($pseudo, $pass)
 {
 	$connectionManager = new ConnectionManager(); // Création d'un objet
-	$retour = $connectionManager->connectMember($pseudo, $pass_hache);
-	if ($retour) {
+	$retour = $connectionManager->connectMember($pseudo);
+	
+	// Comparaison du pass envoyé via le formulaire avec la base
+	$isPasswordCorrect = password_verify($pass, $retour['pass']);
+	
+	if ($isPasswordCorrect) {
 		session_start();
 		$_SESSION['pseudo'] = $pseudo;
 		$_SESSION['member_id'] = $retour['id'];
 		$_SESSION['droit'] = $retour['droit'];
 		if ($retour['droit'] == 0) { //utilisateur simple = 0 admin = 1
 			listPosts();
-			//echo ('via SESSION  :  pseudo = '.$_SESSION['pseudo'] . ' - droit = ' . $_SESSION['droit'] . ' - ID = ' . $_SESSION['member_id']);
 		}
 		else {
-			//echo ('Bonjour '. $_SESSION['pseudo'] . ', vous êtes connecté !');
 			adminAcces();
 		}
 	}
@@ -106,7 +107,6 @@ function connectionMember($pseudo, $pass_hache)
 	}
 		
 }
-
 
 function signalerComment($comment_id, $post_id)
 {
