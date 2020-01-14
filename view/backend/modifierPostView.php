@@ -7,7 +7,7 @@
 
 <header>
     <button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
-    <button type="button" class="button"><a href="http://forteroche.zakbe.fr">HOME</a></button>
+    <button type="button" class="button"><a href="index.php">HOME</a></button>
     <button type="button" class="button"><a href="index.php?action=deconnexion">SE DECONNECTER</a></button>
 </header>
 
@@ -29,7 +29,7 @@
                 <br />
                 <label for="contenu">Contenu :</label>
                 <br />
-                <br /><textarea name="contenu" rows="8" cols="45"><?php echo $data['content']; ?></textarea>
+                <br /><textarea  id="redaction" name="contenu" rows="8" cols="45"><?php echo $data['content']; ?></textarea>
                 <br />
                 <br />
                 <input type="hidden" name="post_id" value="<?php echo $data['id']; ?>" />

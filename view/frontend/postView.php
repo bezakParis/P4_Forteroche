@@ -17,7 +17,7 @@
         ?>
     <div class="news">
         <h3><?php echo htmlspecialchars($data['title']); ?> le : <?php echo $data['creation_date_fr']; ?></h3>
-        <p><?php echo $data['content']; // nl2br permet de convertir les retours à la ligne en balises HTML <br /> ?>
+        <p><?php echo $data['content']; ?>
             <br />&nbsp;
         </p>
     </div>
@@ -37,12 +37,15 @@
         </form>
     </div>
     <h3>Commentaires</h3>
+	
     <?php
-        if ($comments) {
-        	// On affiche les commentaires	
+		$count = $comments->rowCount();
+        if ($count > 0) {
+        		
         	while ($dataComment = $comments->fetch())
         	{
         ?>
+		
     <div class="commentaires">
         <?php
             if ($dataComment['c_moderate'] == 1) {
@@ -52,7 +55,7 @@
             }
             ?>
         <h5><?php echo htmlspecialchars($dataComment['m_pseudo']); ?> le : <?php echo $dataComment['comment_date_fr']; ?></h5>
-        <p><?php echo nl2br(htmlspecialchars($dataComment['c_comment'])); // nl2br permet de convertir les retours à la ligne en balises HTML <br />  ?></p>
+        <p><?php echo nl2br(htmlspecialchars($dataComment['c_comment']));  ?></p>
         <?php
             if ($dataComment['c_moderate'] == 0) {
             ?>
@@ -65,14 +68,13 @@
     <p>&nbsp;</p>
     <?php
         }
-        $comments->closeCursor(); // Termine le traitement de la requête
+        $comments->closeCursor();
         
         }
         else {
         // pas de commentaire	
         ?>
-    <div class="commentaires">
-        <h3>Commentaires</h3>
+    <div class="aucun_commentaires">
         <h5>Pas encore de commentaire</h5>
     </div>
     <?php	

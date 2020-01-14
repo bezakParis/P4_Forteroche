@@ -8,7 +8,7 @@
 		<script src="https://cdn.tiny.cloud/1/3ztlr4a9ila1dt21uqsn3rfezzi5k63pbjxhxqw4hw6qzj99/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 		<script>
 			tinymce.init({
-			  selector: 'textarea',
+			  selector: '#redaction',
 			  language:   "fr_FR",
 			  language_url : '../../public/langs/fr_FR.js'  // site absolute URL
 			});

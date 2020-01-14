@@ -6,7 +6,6 @@
 <?php ob_start(); ?>
 
 <header>
-    <!--<p>Bonjour <?= $_SESSION['pseudo']; ?>&nbsp;&nbsp;&nbsp;&nbsp;</p>-->
     <button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
     <button type="button" class="button"><a href="view/backend/ajouterPostView.php">AJOUTER EPISODE</a></button>
     <button type="button" class="button"><a href="index.php?action=deconnexion">SE DECONNECTER</a></button>

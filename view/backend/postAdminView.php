@@ -7,7 +7,7 @@
 
 <header>
     <button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
-    <button type="button" class="button"><a href="http://forteroche.zakbe.fr">HOME</a></button>
+    <button type="button" class="button"><a href="index.php">HOME</a></button>
     <button type="button" class="button"><a href="index.php?action=deconnexion">SE DECONNECTER</a></button>
 </header>
 
@@ -21,7 +21,7 @@
 		
     <div class="news">
         <h3><?php echo htmlspecialchars($data['title']); ?> le : <?php echo $data['creation_date_fr']; ?></h3>
-        <p><?php echo $data['content']; // nl2br permet de convertir les retours à la ligne en balises HTML <br /> ?></p>
+        <p><?php echo $data['content']; ?></p>
         <br />&nbsp;</p>
     </div>
 	
@@ -44,8 +44,9 @@
     <h3>Commentaires</h3>
 	
     <?php
-        if ($comments) {
-        	// On affiche les commentaires	
+		$count = $comments->rowCount();
+        if ($count > 0) {
+        		
         	while ($dataComment = $comments->fetch())
         	{
         ?>
@@ -59,7 +60,7 @@
             }
             ?>
         <h5><?php echo htmlspecialchars($dataComment['m_pseudo']); ?> le : <?php echo $dataComment['comment_date_fr']; ?></h5>
-        <p><?php echo nl2br(htmlspecialchars($dataComment['c_comment'])); // nl2br permet de convertir les retours à la ligne en balises HTML <br />  ?></p>
+        <p><?php echo nl2br(htmlspecialchars($dataComment['c_comment']));  ?></p>
         <p><a href="index.php?action=supprimerComment&id=<?= $dataComment['c_id']; ?>&post_id=<?php echo $data['id']; ?>">Supprimer</a></p>
         <?php
             if ($dataComment['c_moderate'] == 1) {
@@ -81,8 +82,7 @@
         // pas de commentaire	
         ?>
 		
-    <div class="commentaires">
-        <h3>Commentaires</h3>
+    <div class="aucun_commentaires">
         <h5>Pas encore de commentaire</h5>
     </div>
 	

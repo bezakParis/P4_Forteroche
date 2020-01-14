@@ -6,9 +6,8 @@
 <?php ob_start(); ?>
 
 <header>
-    <!--<p>Bonjour <?= $_SESSION['pseudo']; ?>&nbsp;&nbsp;&nbsp;&nbsp;</p>-->
     <button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
-    <button type="button" class="button"><a href="http://forteroche.zakbe.fr">HOME</a></button>
+    <button type="button" class="button"><a href="index.php">HOME</a></button>
     <button type="button" class="button"><a href="index.php?action=deconnexion">SE DECONNECTER</a></button>
 </header>
 
@@ -26,7 +25,7 @@
                 <br />
                 <label for="contenu">Contenu :</label>
                 <br />
-                <br /><textarea name="contenu" rows="8" cols="45"></textarea>
+                <br /><textarea id="redaction" name="contenu" rows="8" cols="45"></textarea>
                 <br />
                 <br />
                 <br /><input type="submit" value="Ajouter" />
