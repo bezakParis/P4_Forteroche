@@ -5,36 +5,44 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/ConnectionManager.php');
 
-function adminAcces()
-{
-    $postManager = new PostManager(); // Création d'un objet
-    $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
+
+function adminAcces() {
+	
+    $postManager = new PostManager();
+    $posts = $postManager->getPosts();
+	
 	require('view/backend/adminView.php');
 }
 
-function listPosts()
-{
-    $postManager = new PostManager(); // Création d'un objet
-    $posts = $postManager->getPosts(); // Appel d'une fonction de cet objet
+
+function listPosts() {
+	
+    $postManager = new PostManager();
+    $posts = $postManager->getPosts();
+	
 	session_start();
+	
 	if (isset($_SESSION['pseudo']) AND $_SESSION['pseudo'] != "" 
 				AND isset($_SESSION['droit']) AND $_SESSION['droit'] != "") {
+					
 		if ($_SESSION['droit'] == 1) {
+			
 			require('view/backend/adminView.php');
 		}
 		else {
+			
 			require('view/frontend/listPostsMemberView.php');
 		}
-		
 	}
 	else {
+		
 		require('view/frontend/listPostsView.php');
 	}
 }
 
 
-function post()
-{
+function post() {
+	
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 
@@ -45,30 +53,35 @@ function post()
 	
 }
 
-function ajouterCommentaire($comment, $post_id)
-{
+
+function ajouterCommentaire($comment, $post_id) {
+	
 	$postManager = new PostManager();
     $commentManager = new CommentManager();
 	
 	session_start();
+	
     $comment = $commentManager->addComment($_SESSION['member_id'], $comment, $post_id);
+	
 	if ($comment === false) {
+		
         throw new Exception('Impossible d\'ajouter le commentaire !'); 
     }
     else {
-		session_start();
+		
 		if ($_SESSION['droit'] == 1) {
+			
 			header('Location: index.php?action=postAdmin&id=' . $post_id);
-		}else {
+		}
+		else {
+			
 			header('Location: index.php?action=post&id=' . $post_id);
 		} 
     }
 }
 
 
-
-function newMember($pseudo, $pass, $email)
-{
+function newMember($pseudo, $pass, $email) {
 	$connectionManager = new ConnectionManager(); // Création d'un objet
 	
 	$verifMember = $connectionManager->checkMember($pseudo);
@@ -78,69 +91,77 @@ function newMember($pseudo, $pass, $email)
 		$req=$connectionManager->regMember($pseudo, $pass, $email);
 		
 			if (!$req) {
+				
 				throw new Exception('Inscription impossible, réessayer plus tard !');
 			}
 			else {
+				
 				connectionMember($pseudo, $pass);
 			}
 	}
 	else {
+		
         throw new Exception('Inscription impossible, le pseudo ' . $pseudo . ' n\'est pas disponible !');
 	}
-	
 }
 
-function connectionMember($pseudo, $pass)
-{
+
+function connectionMember($pseudo, $pass) {
+	
 	$connectionManager = new ConnectionManager(); // Création d'un objet
 	$retour = $connectionManager->connectMember($pseudo);
 	
-	// Comparaison du pass envoyé via le formulaire avec la base
 	$isPasswordCorrect = password_verify($pass, $retour['pass']);
 	
 	if ($isPasswordCorrect) {
+		
 		session_start();
 		$_SESSION['pseudo'] = $pseudo;
 		$_SESSION['member_id'] = $retour['id'];
 		$_SESSION['droit'] = $retour['droit'];
+		
 		if ($retour['droit'] == 0) { //utilisateur simple = 0 admin = 1
+		
 			listPosts();
 		}
 		else {
+			
 			adminAcces();
 		}
 	}
-	else
-	{		
+	else {
+		
 		throw new Exception('Mauvais identifiant ou mot de passe !');
 	}
 		
 }
 
-function signalerComment($comment_id, $post_id)
-{
+function signalerComment($comment_id, $post_id) {
+	
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 	
 	session_start();
     $comment = $commentManager->moderateComment($comment_id);
+	
 	if ($comment === false) {
+		
         throw new Exception('Impossible de signaler le commentaire !'); 
     }
     else {
+		
         header('Location: index.php?action=post&id=' . $post_id); 
     }
 	
 }
 
 
-
-
-function deconnectionMember()
-{
+function deconnectionMember() {
+	
 	session_start();
 	// Suppression des variables de session et de la session
 	$_SESSION = array();
 	session_destroy();
+	
 	require('view/frontend/confirmDeconnexionView.php');
 }

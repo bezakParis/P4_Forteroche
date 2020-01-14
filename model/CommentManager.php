@@ -1,13 +1,10 @@
 <?php
 
-
 require_once("model/Manager.php");
 
-class CommentManager extends Manager
-{
-	public function getComments($postId)
-    {	
+class CommentManager extends Manager {
 	
+	public function getComments($postId) {	
 	
 		$db = $this->dbConnect();
         $comments = $db->prepare('SELECT c.id AS c_id, c.comment AS c_comment, c.moderate AS c_moderate,
@@ -23,8 +20,8 @@ class CommentManager extends Manager
     }
 	
 	
-	public function addComment($member_id, $comment, $post_id)
-    {
+	public function addComment($member_id, $comment, $post_id) {
+		
 		$db = $this->dbConnect();
 		$insert = $db->prepare('INSERT INTO p4_comments(post_id, member_id, comment, moderate, comment_date) VALUES (:post_id, :member_id, :comment, :moderate, NOW())');
 		$insert->execute(array(
@@ -38,10 +35,9 @@ class CommentManager extends Manager
     }
 	
 	
-	public function updateComment($id)
-    {
+	public function updateComment($id) {
+		
 		$db = $this->dbConnect();
-			
 		$req = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
 		$req->execute(array(
 			'comment_id' => $id,
@@ -52,10 +48,9 @@ class CommentManager extends Manager
     }
 	
 	
-	public function moderateComment($id)
-    {
+	public function moderateComment($id) {
+		
 		$db = $this->dbConnect();
-			
 		$req = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
 		$req->execute(array(
 			'comment_id' => $id,
@@ -65,8 +60,8 @@ class CommentManager extends Manager
 		return $req;	
     }
 	
-	public function removeComment($id)
-    { 
+	public function removeComment($id) {
+		
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE FROM p4_comments WHERE id= ?');
 		$req->execute(array($id));

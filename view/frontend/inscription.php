@@ -12,23 +12,23 @@
 		
 		<form action="../../index.php?action=inscription" method="post">
 			<p>
-			<label for="pseudo">Pseudo : </label>
-			<input type="text" name="pseudo" required />
-			<br />
-			<br />
-			<label for="pwd">Mot de passe : </label>
-			<input type="password" name="pwd" required />
-			<br />
-			<br />
-			<label for="checkPwd">Retaper votre mot de passe : </label>
-			<input type="password" name="checkPwd" required />
-			<br />
-			<br />
-			<label for="email">Adresse email : </label>
-			<input type="email" name="email" required />
-			<br />
-			<br />
-			<input type="submit" value="Valider" />
+				<label for="pseudo">Pseudo : </label>
+				<input type="text" name="pseudo" required />
+				<br />
+				<br />
+				<label for="pwd">Mot de passe : </label>
+				<input type="password" name="pwd" required />
+				<br />
+				<br />
+				<label for="checkPwd">Retaper votre mot de passe : </label>
+				<input type="password" name="checkPwd" required />
+				<br />
+				<br />
+				<label for="email">Adresse email : </label>
+				<input type="email" name="email" required />
+				<br />
+				<br />
+				<input type="submit" value="Valider" />
 			</p>
 		</form>
 		</div>		
