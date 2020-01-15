@@ -2,34 +2,53 @@
 
 <?php ob_start(); ?>
 
+<header>
+	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
+    <a href="../../index.php"><button type="button" class="button">HOME</button></a>
+</header>
+
+
+
 <section id="sect01">
-	<h1>Jean Forteroche, Billet simple pour l'Alaska</h1> 
 	
-	<h1>Inscription</h1>
-	
-	<div class="formulaire">
-		<h3>Veuillez remplir le formulaire ci-dessous:</h3>
-	
+	<h3>Veuillez remplir le formulaire ci-dessous:</h3>
+	<div class="formulaire inscription">
 		<form action="../../index.php?action=inscription" method="post">
-			<p>
-				<label for="pseudo">Pseudo : </label>
-				<input type="text" name="pseudo" required />
-				<br />
-				<br />
-				<label for="pwd">Mot de passe : </label>
-				<input type="password" name="pwd" required />
-				<br />
-				<br />
-				<label for="checkPwd">Retaper votre mot de passe : </label>
-				<input type="password" name="checkPwd" required />
-				<br />
-				<br />
-				<label for="email">Adresse email : </label>
-				<input type="email" name="email" required />
-				<br />
-				<br />
+			<div class="row">
+				<div class="col-a">
+					<label for="pseudo">Pseudo : </label>
+				</div>
+				<div class="col-b">
+					<input type="text" name="pseudo" required />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-a">
+					<label for="pwd">Mot de passe : </label>
+				</div>
+				<div class="col-b">
+					<input type="password" name="pwd" required />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-a">
+					<label for="checkPwd">Retaper votre mot de passe : </label>
+				</div>
+				<div class="col-b">
+					<input type="password" name="checkPwd" required />
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-a">
+					<label for="email">Adresse email : </label>
+				</div>
+				<div class="col-b">
+					<input type="email" name="email" required />
+				</div>
+			</div>
+			<div class="row">
 				<input type="submit" value="Valider" />
-			</p>
+			</div>
 		</form>
 	</div>		
 </section>

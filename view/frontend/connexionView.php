@@ -1,13 +1,16 @@
-<?php $title = 'Jean Forteroche, Billet simple pour l\'Alaska'; ?>
+<?php $title = 'Jean Forteroche, Billet simple pour l\'Alaska - Connexion'; ?>
 
 <?php ob_start(); ?>
 
+<header>
+	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
+    <a href="../../index.php"><button type="button" class="button">HOME</button></a>
+</header>
+
+
 <section id="sect01">
-	<h1>Jean Forteroche, Billet simple pour l'Alaska</h1> 
 	
-	<h1>Connexion</h1>
-	
-	<div class="formulaire">
+	<div class="formulaire connexion">
 		<h3>Veuillez saisir vos identifiants</h3>
 	
 		<form action="../../index.php?action=connexion" method="post">
