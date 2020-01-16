@@ -69,7 +69,7 @@ header {
 
 header h1 {
 	font-family: 'alexbrush', 'robotoblack', serif;
-	font-size: 3.7vw;
+	font-size: 3.5vw;
 	font-weight: bold;
 	color: black;
 	text-shadow: 2px 2px 5px red;
@@ -80,9 +80,16 @@ header h1 {
 	padding: 0;
 }
 
+.nav {
+	top: 0;
+	right: 0;
+	height: 90px;
+}
+
 .fa-home {
 	font-size: 3em;
 	color: black;
+	text-shadow: 2px 2px 5px red;
 	margin-top: 17px;
 	margin-right: 40px;
 }
@@ -99,53 +106,42 @@ header h1 {
 
 .hello-pseudo {
 	height: 40px;
-	margin-right: 20px;
+	margin-right: 10px;
 	margin-top: 20px;
 	background-color: #5CADD3;
 	font-size: 1em;
 	font-weight: normal;
 	color: black;
 	text-align: center;
-	padding: 10px;
+	padding: 7px 20px;
 	border: 2px #4B7FB3 solid;
 	border-radius: 20px;
 }
 
 .button {
-	height: 40px;
+	height: 30px;
 	margin-right: 20px;
-	margin-top: 20px;
+	margin-top: 30px;
 	background-color: #5CADD3;
-	font-size: 1em;
+	font-size: 0.8em;
 	font-weight: normal;
 	color: white;
 	text-align: center;
-	padding: 10px;
+	padding: 5px 10px;
 	border: 2px #4B7FB3 solid;
-	border-radius: 20px;
+	border-radius: 15px;
 	cursor: pointer;
 }
 
 .btnComment {
-	height: 40px;
-	margin-right: 20px;
-	margin-top: 20px;
-	background-color: #5CADD3;
-	font-size: 1em;
-	font-weight: normal;
-	color: white;
-	text-align: center;
-	padding: 10px;
-	border: 2px #4B7FB3 solid;
-	border-radius: 20px;
-	cursor: pointer;
+	margin-left: 20px;
+	margin-bottom: 10px;
 }
 
 .button:hover {
 	background-color:green;
 	color: black;
 }
-
 
 .button a:link {	
 	color: white;
@@ -162,7 +158,7 @@ header h1 {
 
 .contener
 {
-    width:50%;
+    width:70%;
     margin:auto;
 	border: 2px #4B7FB3 solid;
 	border-radius: 10px;
@@ -175,7 +171,7 @@ header h1 {
 {
     width:100%;
     margin:auto;
-	border: 2px #4B7FB3 solid;
+	border: 1px #4B7FB3 solid;
 	border-radius: 10px;
 	padding: 10px;
 	font-size: 1.5em;
@@ -183,7 +179,6 @@ header h1 {
 
 .news h3
 {
-    
 	font-family: 'robotoregular', serif;
 	font-style: italic;
     font-size:0.7em;
@@ -198,6 +193,77 @@ h3 {
     color:black;
     font-size:1.5em;
     margin-bottom:5px;
+}
+
+.formulaire-commentaire {
+    width:600px;
+	height: 300px;
+	background-color: rgba(255, 255, 255, 0.45);
+    margin-right:auto;
+    margin-left:auto;
+    margin-top:40px;
+    margin-bottom:40px;
+	border: 1px #4B7FB3 solid;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.formulaire-commentaire textarea {
+	width:580px;
+	height:150px;
+	font-family: 'robotoregular', serif;
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+.commentaires
+{	
+	font-family: 'robotoregular', serif;
+    width:100%;
+    margin:auto;
+	border: 1px #4B7FB3 solid;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 1.5em;
+}
+
+.contener h5 {
+	font-family: 'robotoregular', serif;
+	font-style: bold;
+    font-size: 1.5em;
+	margin-top: 0px;
+    margin-bottom: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding:10px;
+	width: 100%;
+	text-align: left;
+}
+
+.commentaires p {
+    margin-top:0px;
+}
+
+.aucun-commentaires h5 {
+	font-family: 'robotoregular', serif;
+	font-style: bold;
+    font-size: 1.5em;
+	text-align: center;
+}
+
+.fa-exclamation-triangle {
+	color: red;
+}
+
+#valider-commentaire {
+	background-color: #5CADD3;
+	color: white;
+	padding: 12px 24px;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	float: left;
+	font-family: 'robotoregular', serif;
+    font-size:0.8em;
 }
 
 input[type=text], input[type=password], input[type=email] {
@@ -217,7 +283,6 @@ label {
     font-size:1.2em;
 }
 
-
 input[type=submit] {
 	background-color: #5CADD3;
 	color: white;
@@ -235,9 +300,17 @@ input[type=submit]:hover {
 	color: black;
 }
 
-
 .inscription {
 	width:50%;
+    margin:auto;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.30);
+	padding: 10px;
+}
+
+
+.connexion {
+	width:600px;
     margin:auto;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.30);
@@ -267,9 +340,59 @@ input[type=submit]:hover {
 	clear: both;
 }
 
+#deconnexion {
+	text-align: center;
+	font-size: 2em;	
+}
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 992px) {
+	
+	header h1 {
+		font-size: 4vw;
+		top: 20px;
+		left: 10px;
+	}
+	
+	.nav {
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;	
+		top: 0;
+		right: 0;
+		width: 20%;
+	}
+
+	.button {
+		height: 30px;
+		margin-right: 0px;
+		margin-top: 0px;
+		background-color: #5CADD3;
+		font-size: 0.8em;
+		font-weight: normal;
+		color: white;
+		text-align: center;
+		padding: 5px 10px;
+		border: 2px #4B7FB3 solid;
+		border-radius: 15px;
+		cursor: pointer;
+	}
+	
+	
+	.hello-pseudo {
+		height: 30px;
+		margin-right: 0px;
+		margin-top: 0px;
+		background-color: #5CADD3;
+		font-size: 1em;
+		font-weight: normal;
+		color: black;
+		text-align: center;
+		padding: 5px 20px;
+		border: 2px #4B7FB3 solid;
+		border-radius: 15px;
+	}
 	
 	.inscription {
 		width:80%;
@@ -279,6 +402,65 @@ input[type=submit]:hover {
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 768px) {
+	
+	header h1 {
+		font-size: 5vw;
+		top: 10px;
+		left: 10px;
+	}
+	
+	.nav {
+		/* display:flex; */
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		position: absolute;	
+		top: 23px;
+		right: 0;
+		width: 100%;
+	}
+	
+	.fa-home {
+		font-size: 1.6em;
+		margin-top: 10px;
+		margin-right: 10px;
+	}
+	
+	.contener {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	
+	.contener h5 {
+		font-size: 1em;
+	}
+	
+	.news {
+		font-size: 1em;
+		margin-bottom: 10px;
+	}
+		
+	.commentaires {
+		font-size: 1em;
+		margin-bottom: 10px;
+	}
+
+	.formulaire-commentaire {
+		width:300px;
+		height: 200px;
+		margin-top:40px;
+		margin-bottom:40px;
+		border: 1px #4B7FB3 solid;
+		border-radius: 10px;
+		padding: 10px;
+	}
+	.formulaire-commentaire textarea {
+		width:280px;
+		height:100px;
+	}
+	
+	
+	
 	.col-a, .col-b, input[type=submit] {
 		width: 100%;
 		margin-top: 0;
@@ -286,88 +468,7 @@ input[type=submit]:hover {
 	.inscription {
 		width:100%;
 	}
-}
-
-
-
-
-
-
-
-
-
-
-.formulaire h2
-{
-    color:black;
-    font-size:1.2em;
-    margin-bottom:15px;
-}
-
-
-	
-.gauche
-{
-    width:30%;
-    margin:auto;
-	background-color:#CCCCCC;
-  float: left;
-}
-
-.droite
-{
-    width:70%;
-    margin:auto;
-	background-color:#CCCCCC;
-  float: left;
-}
-
-.retour
-{
-    text-align:center;
-}
-
-.commentaires p
-{
-    margin-top:0px;
-}
-
-.commentaires
-{
-    width: 50%;
-    margin: auto;
-	background-color: #FFD185;
-	padding-left: 10px;
-}
-
-.commentaires h5
-{
-    color:black;
-    font-size:0.9em;
-    margin-bottom:0px;
-}
-
-
-.information
-{
-    display:block;
-	width:50%;
-    margin:auto;	
-}
-
-.information h3
-{
-    color:black;
-    font-size:0.9em;
-    margin-bottom:5px;
-}
-
-#deconnexion {
-	text-align: center;
-	
-}
-
-#deconnexion p {
-	font-size: 2em;
-	
+	.connexion {
+		width:100%;
+	}
 }

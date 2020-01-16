@@ -4,7 +4,7 @@
 
 <header>
 	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
-    <a href="../../index.php"><button type="button" class="button">HOME</button></a>
+    <a href="../../index.php"><i class="fas fa-home"></i></a>
 </header>
 
 
@@ -14,18 +14,17 @@
 		<h3>Veuillez saisir vos identifiants</h3>
 	
 		<form action="../../index.php?action=connexion" method="post">
-			<p>
-				<label for="pseudo">Pseudo : </label>
-				<input type="text" name="pseudo" required />
-				<br />
-				<br />
-				<label for="pwd">Mot de passe : </label>
-				<input type="password" name="pwd" required />
-				<br />
-				<br />
-				<br />
+			<div class="row">
+					<label for="pseudo">Pseudo : </label>
+					<input type="text" name="pseudo" required />
+			</div>
+			<div class="row">
+					<label for="pwd">Mot de passe : </label>
+					<input type="password" name="pwd" required />
+			</div>
+			<div class="row">
 				<input type="submit" value="Valider" />
-			</p>
+			</div>
 		</form>
 	</div>		
 </section>

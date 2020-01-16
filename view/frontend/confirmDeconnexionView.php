@@ -3,16 +3,14 @@
 <?php ob_start(); ?>
 
 <header>
-	<button type="button" class="button"><a href="view/frontend/inscriptionView.php">S'INSCRIRE</a></button>
-	<button type="button" class="button"><a href="view/frontend/connexionView.php">SE CONNECTER</a></button>
+	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
+    <a href="../../index.php"><i class="fas fa-home"></i></a>
 </header>
+
 <section id="sect01">
-	<h1>Jean Forteroche, Billet simple pour l'Alaska</h1> 
 
 	<div id="deconnexion">
-		<p>Vous êtes bien déconnecté(e).
-		<br />
-		<a href="index.php">Retour sur le site</a></p>
+		<p>Vous êtes bien déconnecté(e).</p>
 		
 	</div>
 

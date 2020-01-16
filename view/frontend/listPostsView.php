@@ -4,8 +4,10 @@
 
 <header>
 	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
-    <a href="view/frontend/inscriptionView.php"><button type="button" class="button">S'INSCRIRE</button></a>
-    <a href="view/frontend/connexionView.php"><button type="button" class="button">SE CONNECTER</button></a>
+	<div class="nav">
+		<a href="view/frontend/inscriptionView.php"><button type="button" class="button">S'INSCRIRE</button></a>
+		<a href="view/frontend/connexionView.php"><button type="button" class="button">SE CONNECTER</button></a>
+	</div>
 </header>
 
 <section id="sect01">

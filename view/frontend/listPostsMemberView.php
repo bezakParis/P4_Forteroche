@@ -7,8 +7,10 @@
 
 <header>
 	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
-    <button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
-    <a href="index.php?action=deconnexion"><button type="button" class="button">SE DECONNECTER</button></a>
+	<div class="nav">
+		<button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
+		<a href="index.php?action=deconnexion"><button type="button" class="button">SE DECONNECTER</button></a>
+	</div>
 </header>
 
 <section id="sect01">
@@ -24,7 +26,8 @@
 			</h3>
 			<p><?= $data['content']; ?></p>
 		</div>
-			<a href="index.php?action=post&id=18"><button type="button" class="button	btnComment">Commentaires</button></a>
+		<div>
+			<a href="index.php?action=post&id=<?= $data['id']; ?>"><button type="button" class="button	btnComment"><i class="far fa-comment"></i>&nbsp;&nbsp;Commentaires</button></a>
 		</div>
     </div>
     <br />
