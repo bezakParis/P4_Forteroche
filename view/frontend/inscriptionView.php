@@ -4,7 +4,7 @@
 
 <header>
 	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
-    <a href="../../index.php"><button type="button" class="button">HOME</button></a>
+    <a href="../../index.php"><i class="fas fa-home"></i></a>
 </header>
 
 
@@ -26,7 +26,7 @@
 				<div class="col-a">
 					<label for="pwd">Mot de passe : </label>
 				</div>
-				<div class="col-b">
+					<div class="col-b">
 					<input type="password" name="pwd" required />
 				</div>
 			</div>
