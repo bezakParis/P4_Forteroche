@@ -9,7 +9,7 @@
 	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
 	<div class="nav">
 		<button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
-		<a href="index.php?action=deconnexion"><button type="button" class="button">SE DECONNECTER</button></a>
+		<a href="index.php?action=deconnexion"><button type="button" class="button btn-nav">SE DECONNECTER</button></a>
 	</div>
 </header>
 
@@ -30,8 +30,7 @@
 			<a href="index.php?action=post&id=<?= $data['id']; ?>"><button type="button" class="button	btnComment"><i class="far fa-comment"></i>&nbsp;&nbsp;Commentaires</button></a>
 		</div>
     </div>
-    <br />
-	
+
     <?php
         }
         $posts->closeCursor();

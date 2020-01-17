@@ -159,7 +159,7 @@ header h1 {
 .contener
 {
     width:70%;
-    margin:auto;
+    margin:20px auto;
 	border: 2px #4B7FB3 solid;
 	border-radius: 10px;
 	padding: 10px;
@@ -199,10 +199,7 @@ h3 {
     width:600px;
 	height: 300px;
 	background-color: rgba(255, 255, 255, 0.45);
-    margin-right:auto;
-    margin-left:auto;
-    margin-top:40px;
-    margin-bottom:40px;
+    margin:40px auto;
 	border: 1px #4B7FB3 solid;
 	border-radius: 10px;
 	padding: 10px;
@@ -364,7 +361,7 @@ input[type=submit]:hover {
 		width: 20%;
 	}
 
-	.button {
+	.btn-nav {
 		height: 30px;
 		margin-right: 0px;
 		margin-top: 0px;
@@ -384,11 +381,6 @@ input[type=submit]:hover {
 		height: 30px;
 		margin-right: 0px;
 		margin-top: 0px;
-		background-color: #5CADD3;
-		font-size: 1em;
-		font-weight: normal;
-		color: black;
-		text-align: center;
 		padding: 5px 20px;
 		border: 2px #4B7FB3 solid;
 		border-radius: 15px;
@@ -428,7 +420,6 @@ input[type=submit]:hover {
 	
 	.contener {
 		width: 100%;
-		margin-bottom: 10px;
 	}
 	
 	.contener h5 {
@@ -439,17 +430,16 @@ input[type=submit]:hover {
 		font-size: 1em;
 		margin-bottom: 10px;
 	}
-		
-	.commentaires {
-		font-size: 1em;
-		margin-bottom: 10px;
+	
+	h3 {
+		font-size: 1.2em;
 	}
-
+	
 	.formulaire-commentaire {
 		width:300px;
 		height: 200px;
-		margin-top:40px;
-		margin-bottom:40px;
+		/* margin-top:40px; */
+		/* margin-bottom:40px; */
 		border: 1px #4B7FB3 solid;
 		border-radius: 10px;
 		padding: 10px;
@@ -459,7 +449,9 @@ input[type=submit]:hover {
 		height:100px;
 	}
 	
-	
+	.commentaires {
+		font-size: 1em;
+	}
 	
 	.col-a, .col-b, input[type=submit] {
 		width: 100%;

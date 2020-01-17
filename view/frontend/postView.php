@@ -9,7 +9,7 @@
 	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
 	<div class="nav">
 		<button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
-		<a href="index.php?action=deconnexion"><button type="button" class="button">SE DECONNECTER</button></a>
+		<a href="index.php?action=deconnexion"><button type="button" class="button btn-nav">SE DECONNECTER</button></a>
 	</div>
     <a href="../../index.php"><i class="fas fa-home"></i></a>
 </header>

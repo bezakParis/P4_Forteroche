@@ -6,29 +6,34 @@
 <?php ob_start(); ?>
 
 <header>
-    <button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
-    <button type="button" class="button"><a href="view/backend/ajouterPostView.php">AJOUTER EPISODE</a></button>
-    <button type="button" class="button"><a href="index.php?action=deconnexion">SE DECONNECTER</a></button>
+	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
+	<div class="nav">
+		<button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
+		<a href="view/backend/ajouterPostView.php"><button type="button btn-nav" class="button">AJOUTER EPISODE</button></a>
+		<a href="index.php?action=deconnexion"><button type="button" class="button btn-nav">SE DECONNECTER</button></a>
+	</div>
 </header>
 
 <section id="sect01">
-
-    <h1>Jean Forteroche, Billet simple pour l'Alaska</h1>
 	
     <?php
         while ($data = $posts->fetch())
         {
         ?>
-		
-    <div class="news">
-        <h3><?= htmlspecialchars($data['title']); ?>
-            le : <?= $data['creation_date_fr']; ?>
-        </h3>
-        <p><?= $data['content']; ?></p>
-        <p><a href="index.php?action=modifierPost&id=<?= $data['id']; ?>">Modifier</a></p>
-        <p><a href="index.php?action=supprimerPost&id=<?= $data['id']; ?>">Supprimer</a></p>
-        <p><a href="index.php?action=postAdmin&id=<?= $data['id']; ?>">Commentaires</a></p>
-    </div>
+	
+    <div class="contener">		
+		<div class="news">	
+			<h3><?= htmlspecialchars($data['title']); ?>
+				le : <?= $data['creation_date_fr']; ?>
+			</h3>
+			<p><?= $data['content']; ?></p>
+		</div>
+		<div>
+			<a href="index.php?action=modifierPost&id=<?= $data['id']; ?>"><button type="button" class="button	btnComment"><i class="far fa-edit"></i>&nbsp;&nbsp;Modifier</button></a>
+			<a href="index.php?action=supprimerPost&id=<?= $data['id']; ?>"><button type="button" class="button	btnComment"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Supprimer</button></a>
+			<a href="index.php?action=postAdmin&id=<?= $data['id']; ?>"><button type="button" class="button	btnComment"><i class="far fa-comment"></i>&nbsp;&nbsp;Commentaires</button></a>
+		</div>
+	</div>
     <br />
 	
     <?php
