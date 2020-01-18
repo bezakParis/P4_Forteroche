@@ -50,7 +50,7 @@ try {
 					}
 					else
 					{
-						throw new Exception('L\'adresse ' . $email . ' n\'est pas valide, recommencez !');
+						throw new Exception('L\'adresse ' . $email . ' n\'est pas valide !');
 					}
 				}
 			}

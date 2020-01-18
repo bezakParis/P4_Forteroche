@@ -7,6 +7,7 @@
 
 <header>
 	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
+	<div id="h1-mobile">Jean Forteroche<br />Billet simple pour l'Alaska</div>
 	<div class="nav">
 		<button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
 		<a href="index.php?action=deconnexion"><button type="button" class="button btn-nav">SE DECONNECTER</button></a>

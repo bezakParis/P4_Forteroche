@@ -80,6 +80,11 @@ header h1 {
 	padding: 0;
 }
 
+#h1-mobile {
+	display: none;
+}
+
+
 .nav {
 	top: 0;
 	right: 0;
@@ -364,14 +369,9 @@ input[type=submit]:hover {
 	margin-top: 20px;
 }
 
-#deconnexion {
+#message-information {
 	text-align: center;
-	font-size: 2em;	
-}
-
-#message-erreur {
-	text-align: center;
-	font-size: 1.5em;	
+	font-size: 1.3em;	
 }
 
 
@@ -430,28 +430,71 @@ input[type=submit]:hover {
 
 @media screen and (max-width: 768px) {
 	
+	/*
 	header h1 {
 		font-size: 5vw;
 		top: 10px;
 		left: 10px;
 	}
+	*/
+	header {
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;	
+	}
+	
+	
+	header h1 {
+		display: none;
+	}
+	
+	#h1-mobile {
+		display: block;
+		font-family: 'alexbrush', 'robotoblack', serif;
+		font-size: 6.4vw;
+		font-weight: bold;
+		color: black;
+		text-shadow: 2px 2px 5px red;
+		text-align: center;		
+	}
+	
 	
 	.nav {
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		position: absolute;	
-		top: 23px;
+		/* position: absolute;	 */
+		/* top: 23px; */
 		right: 0;
 		width: 100%;
 	}
 	
-	.fa-home {
-		font-size: 1.6em;
-		margin-top: 10px;
-		margin-right: 10px;
+	.btn-nav {
+		height: 24px;
+		margin-right: 2px;
+		margin-left: 2px;
+		font-size: 0.6em;
+		padding: 4px 10px;
+		border-radius: 12px;
 	}
 	
+	.fa-home {
+		display: block;
+		font-size: 1.6em;
+		margin-top: -30px;
+		margin-right: 0px;
+		margin-left: 300px;
+	}
+	
+
+	.hello-pseudo {
+		height: 24px;
+		margin-right: 10px;
+		margin-top: 0px;
+		font-size: 0.8em;
+		padding: 2px 10px;
+		border-radius: 12px;
+	}
 	.contener {
 		width: 100%;
 	}

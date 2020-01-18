@@ -4,6 +4,7 @@
 
 <header>
 	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
+	<div id="h1-mobile">Jean Forteroche<br />Billet simple pour l'Alaska</div>
 	<div class="nav">
 		<a href="view/frontend/inscriptionView.php"><button type="button" class="button btn-nav">S'INSCRIRE</button></a>
 		<a href="view/frontend/connexionView.php"><button type="button" class="button btn-nav">SE CONNECTER</button></a>
