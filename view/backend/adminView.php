@@ -8,8 +8,7 @@
 <header>
 	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
 	<div class="nav">
-		<button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
-		<a href="view/backend/ajouterPostView.php"><button type="button btn-nav" class="button">AJOUTER EPISODE</button></a>
+		<a href="view/backend/ajouterPostView.php"><button type="button" class="button btn-nav">AJOUTER EPISODE</button></a>
 		<a href="index.php?action=deconnexion"><button type="button" class="button btn-nav">SE DECONNECTER</button></a>
 	</div>
 </header>

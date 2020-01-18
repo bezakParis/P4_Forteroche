@@ -6,35 +6,27 @@
 <?php ob_start(); ?>
 
 <header>
-    <button type="button" class="hello-pseudo">Bonjour <?= $_SESSION['pseudo']; ?></button>
-    <button type="button" class="button"><a href="index.php">HOME</a></button>
-    <button type="button" class="button"><a href="index.php?action=deconnexion">SE DECONNECTER</a></button>
+	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
+	<div class="nav">
+		<a href="index.php?action=deconnexion"><button type="button" class="button btn-nav">SE DECONNECTER</button></a>
+	</div>
+	<a href="../../index.php"><i class="fas fa-home"></i></a>
 </header>
 
 <section id="sect01">
 
-    <h1>Jean Forteroche, Billet simple pour l'Alaska</h1>
-	
     <?php
         $data = $post;
         ?>
 		
-    <div class="formulaire">
-        <h3>Ci-dessous le post à modifier</h3>
+    <div class="formulaire formulaire-ajout">
         <form action="../../index.php?action=validerPost" method="post">
-            <p>
                 <label for="titre">Titre : </label>
                 <input type="text" name="titre" value="<?php echo htmlspecialchars($data['title']); ?>" />
-                <br />
-                <br />
                 <label for="contenu">Contenu :</label>
-                <br />
-                <br /><textarea  id="redaction" name="contenu" rows="8" cols="45"><?php echo $data['content']; ?></textarea>
-                <br />
-                <br />
+                <textarea  id="redaction" name="contenu" rows="8" cols="45"><?php echo $data['content']; ?></textarea>
                 <input type="hidden" name="post_id" value="<?php echo $data['id']; ?>" />
-                <br /><input type="submit" value="Valider" />
-            </p>
+                <input type="submit" id="valider-redaction"  value="Valider" />
         </form>
     </div>
 </section>

@@ -337,6 +337,40 @@ input[type=submit]:hover {
 	clear: both;
 }
 
+.formulaire-ajout {
+    width:70%;
+	height: auto;
+	background-color: rgba(255, 255, 255, 0.45);
+    margin:40px auto;
+	border: 1px #4B7FB3 solid;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+#redaction {
+	width:100%;
+	height:300px;
+	font-family: 'robotoregular', serif;
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+#valider-redaction {
+	background-color: #5CADD3;
+	color: white;
+	padding: 8px 24px;
+	border: none;
+	border-radius: 100px;
+	cursor: pointer;
+	float: left;
+	font-family: 'robotoregular', serif;
+    font-size:1em;
+	margin-top:20px;
+}
+
+
+
+
 #deconnexion {
 	text-align: center;
 	font-size: 2em;	
@@ -438,8 +472,6 @@ input[type=submit]:hover {
 	.formulaire-commentaire {
 		width:300px;
 		height: 200px;
-		/* margin-top:40px; */
-		/* margin-bottom:40px; */
 		border: 1px #4B7FB3 solid;
 		border-radius: 10px;
 		padding: 10px;
@@ -457,10 +489,21 @@ input[type=submit]:hover {
 		width: 100%;
 		margin-top: 0;
 	}
+	
 	.inscription {
 		width:100%;
 	}
+	
 	.connexion {
+		width:100%;
+	}
+	
+	.btnComment {
+		margin:5px 0px 5px 0px;
+		font-size: 0.7em
+	}
+	
+	.formulaire-ajout {
 		width:100%;
 	}
 }
