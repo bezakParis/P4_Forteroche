@@ -11,7 +11,7 @@
 
 <section id="sect01">
 	
-	<h3>Veuillez remplir le formulaire ci-dessous:</h3>
+	<h3>Formulaire d'inscription :</h3>
 	<div class="formulaire inscription">
 		<form action="../../index.php?action=inscription" method="post">
 			<div class="row">

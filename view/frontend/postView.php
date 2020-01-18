@@ -30,9 +30,9 @@
     <div class="formulaire formulaire-commentaire">
         <form action="index.php?action=ajoutCommentaire" method="post">
                 <label for="commentaire">Commentaire :</label>
-                <br /><textarea name="commentaire"></textarea>
+                <textarea name="commentaire"></textarea>
                 <input type="hidden" name="post_id" value="<?php echo $data['id']; ?>" />
-                <br /><input id="valider-commentaire" type="submit" value="Envoyer" />
+                <input id="valider-commentaire" type="submit" value="Envoyer" />
         </form>
     </div>
 	

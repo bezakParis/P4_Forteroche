@@ -55,7 +55,7 @@ body {
 }
 
 header {
-	display:flex;
+	display: flex;
 	position: fixed;
 	justify-content: flex-end;	
 	top: 0;
@@ -73,8 +73,8 @@ header h1 {
 	font-weight: bold;
 	color: black;
 	text-shadow: 2px 2px 5px red;
-	position:absolute;
-	left:20px;
+	position: absolute;
+	left: 20px;
 	top: 13px;
 	margin: 0;
 	padding: 0;
@@ -100,7 +100,7 @@ header h1 {
 
 #sect01 {
 	display: block;
-	width:100%;
+	width: 100%;
 	padding-top: 90px;	
 }
 
@@ -139,7 +139,7 @@ header h1 {
 }
 
 .button:hover {
-	background-color:green;
+	background-color: green;
 	color: black;
 }
 
@@ -156,10 +156,9 @@ header h1 {
 	color: black;
 }
 
-.contener
-{
-    width:70%;
-    margin:20px auto;
+.contener {
+    width: 70%;
+    margin: 20px auto;
 	border: 2px #4B7FB3 solid;
 	border-radius: 10px;
 	padding: 10px;
@@ -167,47 +166,45 @@ header h1 {
 	background-color: rgba(255, 255, 255, 0.45);
 }
 
-.news
-{
-    width:100%;
-    margin:auto;
+.news {
+    width: 100%;
+    margin: auto;
 	border: 1px #4B7FB3 solid;
 	border-radius: 10px;
 	padding: 10px;
 	font-size: 1.5em;
 }
 
-.news h3
-{
+.news h3 {
 	font-family: 'robotoregular', serif;
 	font-style: italic;
-    font-size:0.7em;
-    margin-bottom:10px;
-	text-align:center;
+    font-size: 0.7em;
+    margin-bottom: 10px;
+	text-align: center;
 }
 
 h3 {
 	font-family: 'robotoregular', serif;
 	font-style: bold;
-	text-align:center;
-    color:black;
-    font-size:1.5em;
-    margin-bottom:5px;
+	text-align: center;
+    color: black;
+    font-size: 1.5em;
+    margin-bottom: 5px;
 }
 
 .formulaire-commentaire {
-    width:600px;
+    width: 600px;
 	height: 300px;
 	background-color: rgba(255, 255, 255, 0.45);
-    margin:40px auto;
+    margin: 40px auto;
 	border: 1px #4B7FB3 solid;
 	border-radius: 10px;
 	padding: 10px;
 }
 
 .formulaire-commentaire textarea {
-	width:580px;
-	height:150px;
+	width: 580px;
+	height: 150px;
 	font-family: 'robotoregular', serif;
 	background-color: rgba(255, 255, 255, 0.15);
 }
@@ -215,8 +212,8 @@ h3 {
 .commentaires
 {	
 	font-family: 'robotoregular', serif;
-    width:100%;
-    margin:auto;
+    width: 100%;
+    margin: auto;
 	border: 1px #4B7FB3 solid;
 	border-radius: 10px;
 	padding: 10px;
@@ -231,13 +228,13 @@ h3 {
     margin-bottom: 10px;
 	margin-left: 0px;
 	margin-right: 0px;
-	padding:10px;
+	padding: 10px;
 	width: 100%;
 	text-align: left;
 }
 
 .commentaires p {
-    margin-top:0px;
+    margin-top: 0px;
 }
 
 .aucun-commentaires h5 {
@@ -260,7 +257,8 @@ h3 {
 	cursor: pointer;
 	float: left;
 	font-family: 'robotoregular', serif;
-    font-size:0.8em;
+    font-size: 0.8em;
+	margin-top:10px;
 }
 
 input[type=text], input[type=password], input[type=email] {
@@ -270,14 +268,14 @@ input[type=text], input[type=password], input[type=email] {
 	border-radius: 4px;
 	resize: vertical;
 	font-family: 'robotoregular', serif;
-    font-size:1.2em;
+    font-size: 1.2em;
 }
 
 label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
 	font-family: 'robotoregular', serif;
-    font-size:1.2em;
+    font-size: 1.2em;
 }
 
 input[type=submit] {
@@ -289,26 +287,25 @@ input[type=submit] {
 	cursor: pointer;
 	float: right;
 	font-family: 'robotoregular', serif;
-    font-size:1.2em;
+    font-size: 1.2em;
 }
 
 input[type=submit]:hover {
-	background-color:green;
+	background-color: green;
 	color: black;
 }
 
 .inscription {
-	width:50%;
-    margin:auto;
+	width: 50%;
+    margin: auto;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.30);
 	padding: 10px;
 }
 
-
 .connexion {
-	width:600px;
-    margin:auto;
+	width: 600px;
+    margin: auto;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.30);
 	padding: 10px;
@@ -338,22 +335,21 @@ input[type=submit]:hover {
 }
 
 .formulaire-ajout {
-    width:70%;
+    width: 70%;
 	height: auto;
 	background-color: rgba(255, 255, 255, 0.45);
-    margin:40px auto;
+    margin: 40px auto;
 	border: 1px #4B7FB3 solid;
 	border-radius: 10px;
 	padding: 10px;
 }
 
 #redaction {
-	width:100%;
-	height:300px;
+	width: 100%;
+	height: 300px;
 	font-family: 'robotoregular', serif;
 	background-color: rgba(255, 255, 255, 0.15);
 }
-
 
 #valider-redaction {
 	background-color: #5CADD3;
@@ -364,19 +360,23 @@ input[type=submit]:hover {
 	cursor: pointer;
 	float: left;
 	font-family: 'robotoregular', serif;
-    font-size:1em;
-	margin-top:20px;
+    font-size: 1em;
+	margin-top: 20px;
 }
-
-
-
 
 #deconnexion {
 	text-align: center;
 	font-size: 2em;	
 }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+#message-erreur {
+	text-align: center;
+	font-size: 1.5em;	
+}
+
+
+/**** Tablettes ******************************************/ 
+
 @media screen and (max-width: 992px) {
 	
 	header h1 {
@@ -386,7 +386,7 @@ input[type=submit]:hover {
 	}
 	
 	.nav {
-		display:flex;
+		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-around;	
@@ -421,12 +421,13 @@ input[type=submit]:hover {
 	}
 	
 	.inscription {
-		width:80%;
+		width: 80%;
 	}
 }
 
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+/******** Mobile ****************************************/
+
 @media screen and (max-width: 768px) {
 	
 	header h1 {
@@ -436,7 +437,6 @@ input[type=submit]:hover {
 	}
 	
 	.nav {
-		/* display:flex; */
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
@@ -470,15 +470,17 @@ input[type=submit]:hover {
 	}
 	
 	.formulaire-commentaire {
-		width:300px;
-		height: 200px;
+		width: 100%;
 		border: 1px #4B7FB3 solid;
 		border-radius: 10px;
 		padding: 10px;
 	}
 	.formulaire-commentaire textarea {
-		width:280px;
-		height:100px;
+		width: 100%;
+	}
+
+	#valider-commentaire {
+		font-size: 1em;
 	}
 	
 	.commentaires {
@@ -491,19 +493,19 @@ input[type=submit]:hover {
 	}
 	
 	.inscription {
-		width:100%;
+		width: 100%;
 	}
 	
 	.connexion {
-		width:100%;
+		width: 100%;
 	}
 	
 	.btnComment {
-		margin:5px 0px 5px 0px;
+		margin: 5px 0px 5px 0px;
 		font-size: 0.7em
 	}
 	
 	.formulaire-ajout {
-		width:100%;
+		width: 100%;
 	}
 }
