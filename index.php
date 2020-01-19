@@ -157,7 +157,7 @@ try {
 							AND $_POST['titre'] != "" AND $_POST['contenu'] != "") {
 								
 					$titre = htmlspecialchars($_POST['titre']);
-					$contenu = htmlspecialchars($_POST['contenu']);
+					$contenu = $_POST['contenu'];
 					
 					validerPost($_POST['post_id'], $titre, $contenu);
 				}

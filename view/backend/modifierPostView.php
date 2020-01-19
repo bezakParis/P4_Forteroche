@@ -25,7 +25,7 @@
                 <label for="titre">Titre : </label>
                 <input type="text" name="titre" value="<?php echo htmlspecialchars($data['title']); ?>" />
                 <label for="contenu">Contenu :</label>
-                <textarea  id="redaction" name="contenu" rows="8" cols="45"><?php echo $data['content']; ?></textarea>
+                <textarea  id="redaction" name="contenu" rows="8" cols="45"><?php echo ($data['content']); ?></textarea>
                 <input type="hidden" name="post_id" value="<?php echo $data['id']; ?>" />
                 <input type="submit" id="valider-redaction"  value="Valider" />
         </form>

@@ -222,13 +222,13 @@ h3 {
 	border: 1px #4B7FB3 solid;
 	border-radius: 10px;
 	padding: 10px;
-	font-size: 1.5em;
+	font-size: 1.2em;
 }
 
 .contener h5 {
 	font-family: 'robotoregular', serif;
 	font-style: bold;
-    font-size: 1.5em;
+    font-size: 1.2em;
 	margin-top: 0px;
     margin-bottom: 10px;
 	margin-left: 0px;
@@ -245,7 +245,7 @@ h3 {
 .aucun-commentaires h5 {
 	font-family: 'robotoregular', serif;
 	font-style: bold;
-    font-size: 1.5em;
+    font-size: 1.2em;
 	text-align: center;
 }
 
@@ -451,7 +451,7 @@ input[type=submit]:hover {
 	#h1-mobile {
 		display: block;
 		font-family: 'alexbrush', 'robotoblack', serif;
-		font-size: 6.4vw;
+		font-size: 1.5em;
 		font-weight: bold;
 		color: black;
 		text-shadow: 2px 2px 5px red;
