@@ -5,7 +5,10 @@
 <header>
 	<h1>Jean Forteroche  -  Billet simple pour l'Alaska</h1>
 	<div id="h1-mobile">Jean Forteroche<br />Billet simple pour l'Alaska</div>
-    <a href="../../index.php"><i class="fas fa-home"></i></a>
+	<div class="nav">
+		<a href="view/frontend/connexionView.php"><button type="button" class="button btn-nav">SE CONNECTER</button></a>
+    </div>
+	<a href="../../index.php"><i class="fas fa-home"></i></a>
 </header>
 
 <section id="sect01">

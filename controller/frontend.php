@@ -91,7 +91,7 @@ function newMember($pseudo, $pass, $email) {
 		
 			if (!$req) {
 				
-				throw new Exception('Inscription impossible, réessayer plus tard !');
+				throw new Exception('Inscription impossible, r&eacute;essayer plus tard !');
 			}
 			else {
 				
@@ -130,7 +130,7 @@ function connectionMember($pseudo, $pass) {
 	}
 	else {
 		
-		throw new Exception('Mauvais identifiant ou mot de passe !');
+		throw new Exception('Mauvais identifiant<br />ou<br />mot de passe !');
 	}
 		
 }

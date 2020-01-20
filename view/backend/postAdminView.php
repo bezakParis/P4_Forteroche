@@ -21,7 +21,7 @@
         ?>
 	
     <div class="contener">
-		<div class="news">
+		<div class="posts">
 			<h3><?php echo htmlspecialchars($data['title']); ?> le : <?php echo $data['creation_date_fr']; ?></h3>
 			<p><?php echo $data['content']; ?></p>
 			<br />&nbsp;</p>

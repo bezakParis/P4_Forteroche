@@ -19,7 +19,7 @@ try {
             }
             else {
 				
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('Aucun identifiant de billet envoy&eacute;');
             }
         }
 		
@@ -56,7 +56,7 @@ try {
 			}
 			else {
 				
-				throw new Exception('il manque des informations !');
+				throw new Exception('ils manquent des informations !');
 			}
 		}
 		
@@ -73,7 +73,7 @@ try {
 			}
 			else {
 				
-				throw new Exception('il manque des informations !');
+				throw new Exception('ils manquent des informations !');
 			}
 		}
 		
@@ -93,7 +93,7 @@ try {
 			}
 			else {
 				
-				throw new Exception('il manque des informations !');
+				throw new Exception('ils manquent des informations !');
 			}
 		}
 		
@@ -110,12 +110,12 @@ try {
 				}
 				else {
 					
-					throw new Exception('Aucun identifiant de billet envoyé');
+					throw new Exception('Aucun identifiant de billet envoy&eacute;');
 				}
 			}
             else {
 				
-                throw new Exception('Non authorisé');
+                throw new Exception('Non authoris&eacute;');
             }
         }
 		
@@ -136,12 +136,12 @@ try {
 				}
 				else {
 					
-					throw new Exception('il manque des informations !');
+					throw new Exception('ils manquent des informations !');
 				}
             }
             else {
 				
-                throw new Exception('Non authorisé');
+                throw new Exception('Non authoris&eacute;');
             }
         }
 		
@@ -163,12 +163,12 @@ try {
 				}
 				else {
 					
-					throw new Exception('il manque des informations !');
+					throw new Exception('ils manquent des informations !');
 				}
             }
             else {
 				
-                throw new Exception('Non authorisé');
+                throw new Exception('Non authoris&eacute;');
             }
         }
 		
@@ -185,12 +185,12 @@ try {
 				}
 				else {
 					
-					throw new Exception('probleme ID');
+					throw new Exception('probl&egrave;me ID');
 				}
             }
             else {
 				
-                throw new Exception('Non authorisé');
+                throw new Exception('Non authoris&eacute;');
             }
         }
 		
@@ -207,12 +207,12 @@ try {
 				}
 				else {
 					
-					throw new Exception('probleme ID');
+					throw new Exception('probl&egrave;me ID');
 				}
             }
             else {
 				
-                throw new Exception('Non authorisé');
+                throw new Exception('Non authoris&eacute;');
             }
         }
 		
@@ -230,12 +230,12 @@ try {
 				}
 				else {
 					
-					throw new Exception('probleme ID');
+					throw new Exception('probl&egrave;me ID');
 				}
             }
             else {
 				
-                throw new Exception('Non authorisé');
+                throw new Exception('Non authoris&eacute;');
             }
 		}
 		
@@ -253,12 +253,12 @@ try {
 				}
 				else {
 					
-					throw new Exception('probleme ID');
+					throw new Exception('probl&egrave;me ID');
 				}
             }
             else {
 				
-                throw new Exception('Non authorisé');
+                throw new Exception('Non authoris&eacute;');
             }
 		}
 		
@@ -271,7 +271,7 @@ try {
             }	
             else {
 				
-                throw new Exception('Aucun identifiant de billet envoyé');
+                throw new Exception('Aucun identifiant de billet envoy&eacute;');
             }
         }
 		
