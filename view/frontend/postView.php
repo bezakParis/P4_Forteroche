@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $title = 'Jean Forteroche, Billet simple pour l\'Alaska';
+    $title = 'Jean Forteroche, Billet simple pour l\'Alaska - Commentaires';
     ?>
 	
 <?php ob_start(); ?>

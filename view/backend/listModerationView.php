@@ -62,7 +62,7 @@
         ?>
 		
     <div class="aucun-commentaires">
-        <h5>Pas encore de commentaire</h5>
+        <h5>Pas de commentaire à modéer</h5>
     </div>
 	
     <?php	
