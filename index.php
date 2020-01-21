@@ -23,6 +23,10 @@ try {
             }
         }
 		
+        if ($_GET['action'] == 'listModeration') {
+            listModeration();
+        }
+		
 		
         elseif ($_GET['action'] == 'inscription') {	
 		

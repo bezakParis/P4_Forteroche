@@ -33,6 +33,15 @@ function ajouterPost($titre, $contenu) {
 }
 
 
+function listModeration() {	
+
+	$commentManager = new CommentManager();
+	$comments = $commentManager->listModerate();
+	
+	require('view/backend/listModerationView.php');
+}
+
+
 function modifierPost() {	
 
 	$postManager = new PostManager();

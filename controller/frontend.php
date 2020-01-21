@@ -8,7 +8,7 @@ require_once('model/ConnectionManager.php');
 function adminAcces() {
 	
     $postManager = new PostManager();
-    $posts = $postManager->getPosts();
+    $posts = $postManager->getAdminPosts();
 	
 	require('view/backend/adminView.php');
 }
@@ -17,7 +17,7 @@ function adminAcces() {
 function listPosts() {
 	
     $postManager = new PostManager();
-    $posts = $postManager->getPosts();
+    //$posts = $postManager->getPosts();
 	
 	session_start();
 	
@@ -25,16 +25,16 @@ function listPosts() {
 				AND isset($_SESSION['droit']) AND $_SESSION['droit'] != "") {
 					
 		if ($_SESSION['droit'] == 1) {
-			
+			$posts = $postManager->getAdminPosts();
 			require('view/backend/adminView.php');
 		}
 		else {
-			
+			$posts = $postManager->getPosts();
 			require('view/frontend/listPostsMemberView.php');
 		}
 	}
 	else {
-		
+		$posts = $postManager->getPosts();
 		require('view/frontend/listPostsView.php');
 	}
 }
