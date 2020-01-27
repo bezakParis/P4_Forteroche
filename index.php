@@ -46,6 +46,7 @@ try {
 				else {
 					
 					$pseudo = htmlspecialchars($_POST['pseudo']);
+					$pass = $_POST['pwd'];  // correctif du 26/01 
 					$email = htmlspecialchars($_POST['email']);
 					
 					if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $email)) {

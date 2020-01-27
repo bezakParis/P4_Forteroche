@@ -94,7 +94,9 @@ function supprimerComment($id, $post_id) {
     }
     else {
 		
-		header('Location: index.php?action=postAdmin&id=' . $post_id); 
+		//header('Location: index.php?action=postAdmin&id=' . $post_id);
+		
+        header('Location: index.php?action=listPosts');   // correctif du 26/01 voir suppresion de $post_id ?
     }
 }
 
@@ -110,6 +112,8 @@ function accepterComment($id, $post_id) {
     }
     else {
 		
-		header('Location: index.php?action=postAdmin&id=' . $post_id); 
+		//header('Location: index.php?action=postAdmin&id=' . $post_id); 
+		
+        header('Location: index.php?action=listPosts');  // correctif du 26/01 voir suppresion de $post_id ?
     }
 }

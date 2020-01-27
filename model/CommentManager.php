@@ -21,9 +21,9 @@ class CommentManager extends Manager {
 	
 	public function listModerate() {	
 	
-		$db = $this->dbConnect();
+		$db = $this->dbConnect(); // correctif du 26/01 ajouter champs c.post_id AS c_post_id
 		
-        $comments = $db->prepare('SELECT c.id AS c_id, c.comment AS c_comment, c.moderate AS c_moderate,
+        $comments = $db->prepare('SELECT c.id AS c_id, c.comment AS c_comment, c.moderate AS c_moderate, c.post_id AS c_post_id,
 										DATE_FORMAT(c.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, m.pseudo AS m_pseudo
 									FROM p4_comments AS c
 									INNER JOIN p4_members AS m

@@ -286,6 +286,7 @@ input[type=submit] {
 	float: right;
 	font-family: 'robotoregular', serif;
     font-size: 1.2em;
+	margin-top: 10px; // correctif du 26/01
 }
 
 input[type=submit]:hover {
@@ -299,6 +300,7 @@ input[type=submit]:hover {
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.30);
 	padding: 10px;
+	display: grid; // correctif du 26/01
 }
 
 .col-a {
@@ -318,7 +320,7 @@ input[type=submit]:hover {
 }
 
 
-.row:after {		// Clear floats after the columns
+.row:after {		/* Clear floats after the columns */
 	content: "";
 	display: table;
 	clear: both;
