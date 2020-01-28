@@ -10,7 +10,7 @@
 	<div id="h1-mobile">Jean Forteroche<br />Billet simple pour l'Alaska</div>
 	<div class="nav">
 		<a href="index.php?action=listModeration"><button type="button" class="button btn-nav">Mod&eacute;ration</button></a>
-		<a href="view/backend/ajouterPostView.php"><button type="button" class="button btn-nav">AJOUTER EPISODE</button></a>
+		<a href="index.php?action=ajouterPostView"><button type="button" class="button btn-nav">AJOUTER EPISODE</button></a>
 		<a href="index.php?action=deconnexion"><button type="button" class="button btn-nav">SE DECONNECTER</button></a>
 	</div>
 </header>

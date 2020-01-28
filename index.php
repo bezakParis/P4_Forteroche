@@ -5,6 +5,31 @@ require('controller/backend.php');
 try { 
     if (isset($_GET['action'])) {
 		
+        if ($_GET['action'] == 'inscriptionView') {
+			
+            require('view/frontend/inscriptionView.php');
+		}
+		
+		
+        if ($_GET['action'] == 'connexionView') {
+			
+            require('view/frontend/connexionView.php');
+		}
+		
+		
+        if ($_GET['action'] == 'ajouterPostView') {
+
+			session_start();
+
+			if ($_SESSION['droit'] == 1) {
+				require('view/backend/ajouterPostView.php');
+			}
+			else {
+				throw new Exception('Non authoris&eacute;');
+			}           
+        }
+		
+				
         if ($_GET['action'] == 'listPosts') {
 			
             listPosts();
@@ -24,7 +49,15 @@ try {
         }
 		
         if ($_GET['action'] == 'listModeration') {
-            listModeration();
+
+			session_start();
+
+			if ($_SESSION['droit'] == 1) {
+				listModeration();
+			}
+			else {
+				throw new Exception('Non authoris&eacute;');
+			}   
         }
 		
 		
@@ -46,7 +79,7 @@ try {
 				else {
 					
 					$pseudo = htmlspecialchars($_POST['pseudo']);
-					$pass = $_POST['pwd'];  // correctif du 26/01 
+					$pass = $_POST['pwd']; 
 					$email = htmlspecialchars($_POST['email']);
 					
 					if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $email)) {

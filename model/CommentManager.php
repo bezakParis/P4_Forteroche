@@ -4,18 +4,16 @@ require_once("model/Manager.php");
 
 class CommentManager extends Manager {
 	
-	public function getComments($postId) {	
-	
+	public function getComments($postId) {
 		$db = $this->dbConnect();
-        $comments = $db->prepare('SELECT c.id AS c_id, c.comment AS c_comment, c.moderate AS c_moderate,
+		$comments = $db->prepare('SELECT c.id AS c_id, c.comment AS c_comment, c.moderate AS c_moderate,
 										DATE_FORMAT(c.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, m.pseudo AS m_pseudo
 									FROM p4_comments AS c
 									INNER JOIN p4_members AS m
 									ON c.member_id = m.id
 									WHERE c.post_id = ?
 									ORDER BY c.comment_date DESC');
-        $comments->execute(array($postId));
-		
+		$comments->execute(array($postId));
 		return $comments;
     }
 	

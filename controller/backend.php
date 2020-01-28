@@ -93,10 +93,7 @@ function supprimerComment($id, $post_id) {
         throw new Exception('Impossible de supprimer le commentaire !'); 
     }
     else {
-		
-		//header('Location: index.php?action=postAdmin&id=' . $post_id);
-		
-        header('Location: index.php?action=listPosts');   // correctif du 26/01 voir suppresion de $post_id ?
+        header('Location: index.php?action=listPosts');
     }
 }
 
@@ -111,9 +108,6 @@ function accepterComment($id, $post_id) {
         throw new Exception('Impossible de modifier le statut du commentaire !'); 
     }
     else {
-		
-		//header('Location: index.php?action=postAdmin&id=' . $post_id); 
-		
-        header('Location: index.php?action=listPosts');  // correctif du 26/01 voir suppresion de $post_id ?
+        header('Location: index.php?action=listPosts');
     }
 }
