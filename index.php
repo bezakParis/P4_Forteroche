@@ -31,16 +31,22 @@ try {
 		
 				
         if ($_GET['action'] == 'listPosts') {
-			
-            listPosts();
+				listPosts();
         }
 		
 		
         elseif ($_GET['action'] == 'post') {
 			
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-				
-                post();
+			
+				session_start();
+	
+				if ($_SESSION['pseudo'] != "") {
+	                post();
+				}
+				else {
+					throw new Exception('Non authoris&eacute;');
+				}            
             }
             else {
 				
@@ -261,8 +267,7 @@ try {
 			
 			if ($_SESSION['droit'] == 1) {
 				
-				if (isset($_GET['id']) AND $_GET['id'] != ""
-						AND isset($_GET['post_id']) AND $_GET['post_id'] != "") {
+				if (isset($_GET['id']) AND $_GET['id'] != "") {
 							
 					supprimerComment($_GET['id'], $_GET['post_id']);
 				}

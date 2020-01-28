@@ -83,7 +83,7 @@ function supprimerPost($id) {
 }
 
 
-function supprimerComment($id, $post_id) {
+function supprimerComment($id) {
 	
 	$commentManager = new CommentManager();
 	$comment = $commentManager->removeComment($id);
@@ -98,7 +98,7 @@ function supprimerComment($id, $post_id) {
 }
 
 
-function accepterComment($id, $post_id) {
+function accepterComment($id) {
 	
 	$commentManager = new CommentManager();
 	$comment = $commentManager->updateComment($id);

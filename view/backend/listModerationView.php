@@ -41,11 +41,11 @@
 			<p><?php echo nl2br(htmlspecialchars($dataComment['c_comment']));  ?></p>
 		</div>
 		<div>		
-			<a href="index.php?action=supprimerComment&id=<?= $dataComment['c_id']; ?>&post_id=<?php echo $dataComment['c_post_id']; // correctif du 26/01 ?>"><button type="button" class="button btnComment"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Supprimer</button></a>
+			<a href="index.php?action=supprimerComment&id=<?= $dataComment['c_id']; ?>"><button type="button" class="button btnComment"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Supprimer</button></a>
 			<?php
 				if ($dataComment['c_moderate'] == 1) {
 				?>
-					<a href="index.php?action=accepterComment&id=<?= $dataComment['c_id']; ?>&post_id=<?php echo $dataComment['c_post_id']; // correctif du 26/01 ?>"><button type="button" class="button btnComment"><i class="far fa-check-circle"></i>&nbsp;&nbsp;Accepter</button></a>
+					<a href="index.php?action=accepterComment&id=<?= $dataComment['c_id']; ?>"><button type="button" class="button btnComment"><i class="far fa-check-circle"></i>&nbsp;&nbsp;Accepter</button></a>
 			<?php	
 				}
 				?>

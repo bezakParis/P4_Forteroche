@@ -5,7 +5,6 @@
     src: url('../fonts/AlexBrush-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -17,7 +16,6 @@
          url('../fonts/Roboto-Black-webfont.svg#robotoblack') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -29,7 +27,6 @@
          url('../fonts/Roboto-Light-webfont.svg#robotolight') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -41,7 +38,6 @@
          url('../fonts/Roboto-Regular-webfont.svg#robotoregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 /*********************************************************************************/	
@@ -287,6 +283,7 @@ input[type=submit] {
 	font-family: 'robotoregular', serif;
     font-size: 1.2em;
 	margin-top: 10px;
+}
 
 input[type=submit]:hover {
 	background-color: green;
