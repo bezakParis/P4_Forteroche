@@ -76,9 +76,16 @@ class PostManager extends Manager {
 	public function removePost($id) {
 		
         $db = $this->dbConnect();
-        $req = $db->prepare('DELETE FROM p4_posts WHERE id= ?');
-		$req->execute(array($id));
-		
-		return $req;
+		$result = $db->query('SELECT EXISTS (SELECT id FROM p4_posts WHERE id="' . $id . '" ) AS article_exists');
+		$req = $result->fetch();
+		if ($req['article_exists']) {
+            $req = $db->prepare('DELETE FROM p4_posts WHERE id= ?');
+            $req->execute(array($id));
+            
+            return $req;
+		}
+		else {
+			throw new Exception('Probl&egrave;me ID !');
+		}		
 	}
 }

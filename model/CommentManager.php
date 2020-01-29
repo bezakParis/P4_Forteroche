@@ -52,34 +52,55 @@ class CommentManager extends Manager {
 	public function updateComment($id) {
 		
 		$db = $this->dbConnect();
-		$req = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
-		$req->execute(array(
-			'comment_id' => $id,
-			'moderate' => 0,
-			));
-		
-		return $req;	
+		$result = $db->query('SELECT EXISTS (SELECT id FROM p4_comments WHERE id="' . $id . '" ) AS article_exists');
+		$req = $result->fetch();
+		if ($req['article_exists']) {
+			$req = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
+			$req->execute(array(
+				'comment_id' => $id,
+				'moderate' => 0,
+				));
+			
+			return $req;
+		}
+		else {
+			throw new Exception('Probl&egrave;me ID !');
+		}			
     }
 	
 	
 	public function moderateComment($id) {
 		
 		$db = $this->dbConnect();
-		$req = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
-		$req->execute(array(
-			'comment_id' => $id,
-			'moderate' => 1,
-			));
-		
-		return $req;	
+		$result = $db->query('SELECT EXISTS (SELECT id FROM p4_comments WHERE id="' . $id . '" ) AS article_exists');
+		$req = $result->fetch();
+		if ($req['article_exists']) {
+			$req = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
+			$req->execute(array(
+				'comment_id' => $id,
+				'moderate' => 1,
+				));
+			
+			return $req;
+		}
+		else {
+			throw new Exception('Probl&egrave;me ID !');
+		}			
     }
 	
 	public function removeComment($id) {
 		
         $db = $this->dbConnect();
-        $req = $db->prepare('DELETE FROM p4_comments WHERE id= ?');
-		$req->execute(array($id));
-		
-		return $req;
+		$result = $db->query('SELECT EXISTS (SELECT id FROM p4_comments WHERE id="' . $id . '" ) AS article_exists');
+		$req = $result->fetch();
+			if ($req['article_exists']) {
+			$req = $db->prepare('DELETE FROM p4_comments WHERE id= ?');
+			$req->execute(array($id));
+			
+			return $req;
+		}
+		else {
+			throw new Exception('Probl&egrave;me ID !');
+		}			
 	}
 }

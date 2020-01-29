@@ -289,10 +289,9 @@ try {
 			
 			if ($_SESSION['droit'] == 1) {
 				
-				if (isset($_GET['id']) AND $_GET['id'] != ""
-						AND isset($_GET['post_id']) AND $_GET['post_id'] != "") {
+				if (isset($_GET['id']) AND $_GET['id'] != "") {
 							
-					accepterComment($_GET['id'], $_GET['post_id']);
+					accepterComment($_GET['id']);
 				}
 				else {
 					
