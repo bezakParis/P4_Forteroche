@@ -4,7 +4,6 @@ require_once("model/Manager.php");
 
 class PostManager extends Manager {
 	
-	
     public function getPosts() {
 		
         $db = $this->dbConnect();
@@ -25,8 +24,10 @@ class PostManager extends Manager {
     public function getPost($postId) {
 	
         $db = $this->dbConnect();
-		$result = $db->query('SELECT EXISTS (SELECT id FROM p4_posts WHERE id="' . $postId . '" ) AS article_exists');
+		$result = $db->prepare('SELECT EXISTS (SELECT id FROM p4_posts WHERE id= ? ) AS article_exists');
+		$result->execute(array($postId));
 		$req = $result->fetch();
+
 		if ($req['article_exists']) {
             $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM p4_posts WHERE id = ?');
             $req->execute(array($postId));
@@ -52,12 +53,13 @@ class PostManager extends Manager {
 	}
 	
 	
-	public function updatePost($id, $titre, $contenu) {
-		
+	public function updatePost($id, $titre, $contenu) {		
         
 		$db = $this->dbConnect();
-		$result = $db->query('SELECT EXISTS (SELECT id FROM p4_posts WHERE id="' . $id . '" ) AS article_exists');
+		$result = $db->prepare('SELECT EXISTS (SELECT id FROM p4_posts WHERE id= ? ) AS article_exists');
+		$result->execute(array($id));
 		$req = $result->fetch();
+
 		if ($req['article_exists']) {
             $req = $db->prepare('UPDATE p4_posts SET title=:p_titre, content=:p_contenu WHERE id=:p_id');
             $req->execute(array(
@@ -74,10 +76,12 @@ class PostManager extends Manager {
 	
 	
 	public function removePost($id) {
-		
-        $db = $this->dbConnect();
-		$result = $db->query('SELECT EXISTS (SELECT id FROM p4_posts WHERE id="' . $id . '" ) AS article_exists');
+        
+		$db = $this->dbConnect();
+		$result = $db->prepare('SELECT EXISTS (SELECT id FROM p4_posts WHERE id= ?) AS article_exists');
+		$result->execute(array($id));
 		$req = $result->fetch();
+
 		if ($req['article_exists']) {
             $req = $db->prepare('DELETE FROM p4_posts WHERE id= ?');
             $req->execute(array($id));

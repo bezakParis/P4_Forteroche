@@ -29,4 +29,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('templateAjoutPost.php'); ?>
+<?php require('templateAdmin.php'); ?>

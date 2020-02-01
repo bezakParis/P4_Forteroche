@@ -23,11 +23,9 @@ function ajouterPost($titre, $contenu) {
 	$post = $postManager->addPost($titre, $contenu);
 	
 	if ($post === false) {
-		
         throw new Exception('Impossible d\'ajouter le post !'); 
     }
     else {
-		
         header('Location: index.php?action=listPosts'); 
     }
 }
@@ -57,11 +55,9 @@ function validerPost($id, $titre, $contenu) {
 	$post = $postManager->updatePost($id, $titre, $contenu);
 	
 	if ($post === false) {
-		
         throw new Exception('Impossible de modifier le post !'); 
     }
     else {
-		
         header('Location: index.php?action=listPosts'); 
     }
 }
@@ -73,11 +69,9 @@ function supprimerPost($id) {
 	$post = $postManager->removePost($id);
 	
 	if ($post === false) {
-		
         throw new Exception('Impossible de supprimer le post !'); 
     }
     else {
-		
         header('Location: index.php?action=listPosts'); 
     }
 }
@@ -89,7 +83,6 @@ function supprimerComment($id) {
 	$comment = $commentManager->removeComment($id);
 	
 	if ($comment === false) {
-		
         throw new Exception('Impossible de supprimer le commentaire !'); 
     }
     else {
@@ -104,7 +97,6 @@ function accepterComment($id) {
 	$comment = $commentManager->updateComment($id);
 	
 	if ($comment === false) {
-		
         throw new Exception('Impossible de modifier le statut du commentaire !'); 
     }
     else {

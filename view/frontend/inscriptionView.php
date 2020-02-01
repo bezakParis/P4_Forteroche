@@ -56,4 +56,4 @@
 			
 <?php $content = ob_get_clean(); ?>
 
-<?php require('templateConnection.php'); ?>
+<?php require('template.php'); ?>

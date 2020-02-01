@@ -17,7 +17,6 @@ function adminAcces() {
 function listPosts() {
 	
     $postManager = new PostManager();
-    //$posts = $postManager->getPosts();
 	
 	session_start();
 	
@@ -63,17 +62,13 @@ function ajouterCommentaire($comment, $post_id) {
     $comment = $commentManager->addComment($_SESSION['member_id'], $comment, $post_id);
 	
 	if ($comment === false) {
-		
         throw new Exception('Impossible d\'ajouter le commentaire !'); 
     }
     else {
-		
 		if ($_SESSION['droit'] == 1) {
-			
 			header('Location: index.php?action=postAdmin&id=' . $post_id);
 		}
 		else {
-			
 			header('Location: index.php?action=post&id=' . $post_id);
 		} 
     }
@@ -81,25 +76,21 @@ function ajouterCommentaire($comment, $post_id) {
 
 
 function newMember($pseudo, $pass, $email) {
-	$connectionManager = new ConnectionManager(); // Création d'un objet
-	
+
+	$connectionManager = new ConnectionManager();
 	$verifMember = $connectionManager->checkMember($pseudo);
 	
 	if ($verifMember['nbr'] == 0) {
 		
 		$req=$connectionManager->regMember($pseudo, $pass, $email);
-		
-			if (!$req) {
-				
-				throw new Exception('Inscription impossible, r&eacute;essayer plus tard !');
-			}
-			else {
-				
-				connectionMember($pseudo, $pass);
-			}
+		if (!$req) {
+			throw new Exception('Inscription impossible, r&eacute;essayer plus tard !');
+		}
+		else {
+			connectionMember($pseudo, $pass);
+		}
 	}
 	else {
-		
         throw new Exception('Inscription impossible, le pseudo ' . $pseudo . ' n\'est pas disponible !');
 	}
 }
@@ -107,32 +98,27 @@ function newMember($pseudo, $pass, $email) {
 
 function connectionMember($pseudo, $pass) {
 	
-	$connectionManager = new ConnectionManager(); // Création d'un objet
+	$connectionManager = new ConnectionManager(); // Crï¿½ation d'un objet
 	$retour = $connectionManager->connectMember($pseudo);
 	
 	$isPasswordCorrect = password_verify($pass, $retour['pass']);
 	
 	if ($isPasswordCorrect) {
-		
 		session_start();
 		$_SESSION['pseudo'] = $pseudo;
 		$_SESSION['member_id'] = $retour['id'];
 		$_SESSION['droit'] = $retour['droit'];
 		
 		if ($retour['droit'] == 0) { //utilisateur simple = 0 admin = 1
-		
 			listPosts();
 		}
 		else {
-			
 			adminAcces();
 		}
 	}
 	else {
-		
 		throw new Exception('Mauvais identifiant<br />ou<br />mot de passe !');
 	}
-		
 }
 
 function signalerComment($comment_id, $post_id) {
@@ -142,16 +128,12 @@ function signalerComment($comment_id, $post_id) {
 	
 	session_start();
     $comment = $commentManager->moderateComment($comment_id);
-	
 	if ($comment === false) {
-		
         throw new Exception('Impossible de signaler le commentaire !'); 
     }
     else {
-		
         header('Location: index.php?action=post&id=' . $post_id); 
     }
-	
 }
 
 

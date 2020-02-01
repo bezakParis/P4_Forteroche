@@ -5,6 +5,7 @@ require_once("model/Manager.php");
 class CommentManager extends Manager {
 	
 	public function getComments($postId) {
+
 		$db = $this->dbConnect();
 		$comments = $db->prepare('SELECT c.id AS c_id, c.comment AS c_comment, c.moderate AS c_moderate,
 										DATE_FORMAT(c.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, m.pseudo AS m_pseudo
@@ -14,13 +15,13 @@ class CommentManager extends Manager {
 									WHERE c.post_id = ?
 									ORDER BY c.comment_date DESC');
 		$comments->execute(array($postId));
+
 		return $comments;
     }
 	
 	public function listModerate() {	
 	
-		$db = $this->dbConnect(); // correctif du 26/01 ajouter champs c.post_id AS c_post_id
-		
+		$db = $this->dbConnect();
         $comments = $db->prepare('SELECT c.id AS c_id, c.comment AS c_comment, c.moderate AS c_moderate, c.post_id AS c_post_id,
 										DATE_FORMAT(c.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr, m.pseudo AS m_pseudo
 									FROM p4_comments AS c
@@ -52,8 +53,10 @@ class CommentManager extends Manager {
 	public function updateComment($id) {
 		
 		$db = $this->dbConnect();
-		$result = $db->query('SELECT EXISTS (SELECT id FROM p4_comments WHERE id="' . $id . '" ) AS article_exists');
+		$result = $db->prepare('SELECT EXISTS (SELECT id FROM p4_comments WHERE id= ? ) AS article_exists');
+		$result->execute(array($id));
 		$req = $result->fetch();
+
 		if ($req['article_exists']) {
 			$req = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
 			$req->execute(array(
@@ -72,8 +75,11 @@ class CommentManager extends Manager {
 	public function moderateComment($id) {
 		
 		$db = $this->dbConnect();
-		$result = $db->query('SELECT EXISTS (SELECT id FROM p4_comments WHERE id="' . $id . '" ) AS article_exists');
+		$result = $db->prepare('SELECT EXISTS (SELECT id FROM p4_comments WHERE id= ? ) AS article_exists');
+		$result->execute(array($id));
 		$req = $result->fetch();
+
+
 		if ($req['article_exists']) {
 			$req = $db->prepare('UPDATE p4_comments SET moderate=:moderate WHERE id=:comment_id');
 			$req->execute(array(
@@ -90,13 +96,14 @@ class CommentManager extends Manager {
 	
 	public function removeComment($id) {
 		
-        $db = $this->dbConnect();
-		$result = $db->query('SELECT EXISTS (SELECT id FROM p4_comments WHERE id="' . $id . '" ) AS article_exists');
+        $db = $this->dbConnect();$result = $db->prepare('SELECT EXISTS (SELECT id FROM p4_comments WHERE id= ? ) AS article_exists');
+		$result->execute(array($id));
 		$req = $result->fetch();
-			if ($req['article_exists']) {
+
+		if ($req['article_exists']) {
 			$req = $db->prepare('DELETE FROM p4_comments WHERE id= ?');
 			$req->execute(array($id));
-			
+		
 			return $req;
 		}
 		else {
